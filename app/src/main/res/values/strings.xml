@@ -12,6 +12,10 @@
     <string name="realizar_login">Realizar login</string>
     <string name="nome_e_sobrenome">Nome e Sobrenome</string>
     <string name="e_mail">E-mail</string>
-    <string name="nome_de_usuario">Nome de Usuario</string>
     <string name="telefone">Telefone</string>
+    <string name="cpf">CPF</string>
+
+    <array name="Regiões">
+        <item>Zona Sul</item>
+    </array>
 </resources>

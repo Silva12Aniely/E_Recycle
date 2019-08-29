@@ -1,5 +1,6 @@
 package com.example.e_recycle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -46,10 +47,10 @@ public class Cadastro_Activity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
             startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            onBackPressed();
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerVertical="true"
+    android:layout_gravity="center_vertical"
+    android:background="@drawable/bk_login"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginRight="50dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="50dp"
+            android:src="@drawable/erecycle_logo"
+            android:contentDescription="@string/logo_e_recycle"/>
+
+        <EditText
+            android:id="@+id/txtLogin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/etxt_login"
+            android:hint="@string/login"
+            android:textAlignment="center"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/txtSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/etxt_login"
+            android:hint="@string/senha"
+            android:textAlignment="center"
+            android:inputType="textPassword"
+            android:padding="8dp"
+            android:textColor="#FFF"
+            android:textColorHint="#FFF"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/btnEntrar"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/btn_entrar"
+            android:text="@string/entrar"
+            android:textAllCaps="true"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnSair"
+            android:layout_width="150dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/btn_sair"
+            android:text="@string/sair"
+            android:textAllCaps="true"
+            android:textColor="#FFF"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal">
+
+            <TextView
+                android:id="@+id/lblEsqSenha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/esqueci_a_senha"
+                android:textColor="#fff"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/idBarra"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/lblEsqSenha"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="|"
+                android:textColor="#FFF"
+                android:textSize="20sp"
+                tools:ignore="HardcodedText"
+                android:layout_toEndOf="@+id/lblEsqSenha" />
+
+            <TextView
+                android:id="@+id/lblcadastre"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@id/idBarra"
+                android:text="@string/cadastre_se"
+                android:textColor="#51A354"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_toEndOf="@id/idBarra" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:gravity="center"
+            android:text="@string/e_recycle_todos_os_direitos_reservados_2019"
+            android:textColor="#fff"
+            android:textSize="14sp" />
+    </LinearLayout>
+</LinearLayout>

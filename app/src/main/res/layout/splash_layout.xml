@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Splash_Activity"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bk_mob">
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/erecycle_logo"
+        android:layout_marginTop="60dp"/>
+
+    <ProgressBar
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="65dp"/>
+
+    <TextView
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:text="@string/e_recycle_todos_os_direitos_reservados_2019"
+        android:textColor="#fff"
+        android:textSize="17sp"
+        android:gravity="center"
+        android:layout_marginTop="170dp"/>
+
+</LinearLayout>

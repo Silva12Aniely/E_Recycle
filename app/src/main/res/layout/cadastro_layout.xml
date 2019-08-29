@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".Cadastro_Activity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mCadastro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Cadastro"
+        app:titleTextColor="#fff">
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fff" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/add_photo_profile"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/background_cadastro"
+                android:orientation="vertical">
+
+
+                <EditText
+                    android:id="@+id/cNome_Sobrenome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:hint="@string/nome_e_sobrenome"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColor="#009f35"
+                    android:textColorHint="#A1009F35"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/cEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:hint="@string/e_mail"
+                    android:inputType="textEmailAddress"
+                    android:padding="10dp"
+                    android:textColor="#009f35"
+                    android:textColorHint="#A1009F35"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/cNomeUsuario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:hint="@string/nome_de_usuario"
+                    android:inputType="textPersonName"
+                    android:padding="10dp"
+                    android:textColor="#009f35"
+                    android:textColorHint="#A1009F35"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/cSenha"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:hint="@string/senha"
+                    android:inputType="textPassword"
+                    android:padding="10dp"
+                    android:textColor="#009f35"
+                    android:textColorHint="#A1009F35"
+                    android:textSize="20sp" />
+
+                <EditText
+                    android:id="@+id/cTelefone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="40dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="40dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:hint="@string/telefone"
+                    android:inputType="textPhonetic"
+                    android:padding="10dp"
+                    android:textColor="#009f35"
+                    android:textColorHint="#A1009F35"
+                    android:textSize="20sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:id="@+id/RealizarLogin"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="25dp"
+                        android:text="@string/realizar_login"
+                        android:textAlignment="center"
+                        android:textColor="#009f35"
+                        android:textSize="22sp"/>
+
+                    <Button
+                        android:id="@+id/btnCadastrar"
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginBottom="40dp"
+                        android:layout_toEndOf="@id/RealizarLogin"
+                        android:layout_toRightOf="@id/RealizarLogin"
+                        android:background="@drawable/btn_entrar"
+                        android:text="@string/cadastrar"
+                        android:textAllCaps="false"
+                        android:textColor="#fff"
+                        android:textSize="22sp" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

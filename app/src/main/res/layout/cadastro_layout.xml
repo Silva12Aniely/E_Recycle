@@ -94,15 +94,6 @@
                     android:textColorHint="#A1009F35"
                     android:textSize="20sp" />
 
-                <Spinner
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="39dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="40dp"
-                    android:background="@drawable/edit_cadastro"
-                    android:entries="@array/Regiões"
-                    android:padding="12dp" />
 
                 <EditText
                     android:id="@+id/cEmail"

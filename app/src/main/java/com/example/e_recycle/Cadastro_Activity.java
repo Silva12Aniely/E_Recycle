@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -63,9 +64,8 @@ public class Cadastro_Activity extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Cadastrado(a) com sucesso!", Toast.LENGTH_SHORT).show();
-                btnCadastrar.setEnabled(false);
-                btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
+//                btnCadastrar.setEnabled(false);
+//                btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
 
                 if (isUpdating) {
                     updateClientes();
@@ -106,9 +106,9 @@ public class Cadastro_Activity extends AppCompatActivity {
 
     private void createCliente() {
         String nome = cNome.getText().toString().trim();
-        String cpf = cCPF.getText().toString().trim();
-        String telefone = cTelefone.getText().toString().trim();
         String email = cEmail.getText().toString().trim();
+        String telefone = cTelefone.getText().toString().trim();
+        String cpf = cCPF.getText().toString().trim();
 //        String senha = cSenha.getText().toString().trim();
 
         if (TextUtils.isEmpty(nome)) {
@@ -116,9 +116,9 @@ public class Cadastro_Activity extends AppCompatActivity {
             cNome.requestFocus();
             return;
         }
-        if (TextUtils.isEmpty(cpf)) {
-            cCPF.setError("Insira seu CPF");
-            cCPF.requestFocus();
+        if (TextUtils.isEmpty(email)) {
+            cEmail.setError("Insira seu e-mail");
+            cEmail.requestFocus();
             return;
         }
         if (TextUtils.isEmpty(telefone)) {
@@ -126,9 +126,9 @@ public class Cadastro_Activity extends AppCompatActivity {
             cTelefone.requestFocus();
             return;
         }
-        if (TextUtils.isEmpty(email)) {
-            cEmail.setError("Insira seu e-mail");
-            cEmail.requestFocus();
+        if (TextUtils.isEmpty(cpf)) {
+            cCPF.setError("Insira seu CPF");
+            cCPF.requestFocus();
             return;
         }
 //        if (TextUtils.isEmpty(senha)) {
@@ -146,6 +146,7 @@ public class Cadastro_Activity extends AppCompatActivity {
 
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_CLIENTES, params, CODE_POST_REQUEST);
         request.execute();
+        Toast.makeText(getApplicationContext(), "Cadastrado(a) com sucesso!", Toast.LENGTH_SHORT).show();
     }
 
     private void readClientes() {
@@ -215,10 +216,10 @@ public class Cadastro_Activity extends AppCompatActivity {
 
             ClientesList.add(new Clientes(
                     obj.getInt("CODCLIENTES"),
-                    obj.getInt("CPF"),
-                    obj.getInt("TELEFONE"),
                     obj.getString("NOME"),
-                    obj.getString("EMAIL")
+                    obj.getString("EMAIL"),
+                    obj.getInt("TELEFONE"),
+                    obj.getInt("CPF")
             ));
         }
 //        ClientesAdapter adapter = new ClientesAdapter(ClientesList);
@@ -248,6 +249,7 @@ public class Cadastro_Activity extends AppCompatActivity {
             }
             catch (JSONException e) {
                 e.printStackTrace();
+                Toast.makeText(getApplicationContext(), "Deu ruim", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -273,6 +275,27 @@ public class Cadastro_Activity extends AppCompatActivity {
             this.clientesList = clientesList;
         }
 
-
+//        @Override
+//        public View getView(int position, View convertView, ViewGroup parent) {
+//            final Button btnCadastrar = findViewById(R.id.btnCadastrar);
+//            final Clientes clientes = clientesList.get(position);
+//
+//            btnCadastrar.setText(clientes.getNOME());
+//
+//            btnCadastrar.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    isUpdating = true;
+//                    Codcliente.setText(String.valueOf(clientes.getCODCLIENTES()));
+//                    cNome.setText(clientes.getNOME());
+//                    cEmail.setText(clientes.getEMAIL());
+//                    cTelefone.setText(clientes.getTELEFONE());
+//                    cCPF.setText(clientes.getCPF());
+//                    btnCadastrar.setText("Deu bom");
+//                }
+//            });
+//
+//            return super.getView(position, convertView, parent);
+//        }
     }
 }

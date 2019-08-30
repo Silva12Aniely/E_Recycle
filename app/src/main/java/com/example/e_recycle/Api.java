@@ -1,8 +1,7 @@
 package com.example.e_recycle;
 
 public class Api {
-//    private  static final  String ROOT_URL = "http://10.23.49.24/API/v1/Api.php?apicall=";
-    private  static final  String ROOT_URL = "http://192.168.0.104/API/v1/Api.php?apicall=";
+    private  static final  String ROOT_URL = "http://192.168.0.26/API/v1/Api.php?apicall=";
 
     public static final String URL_CREATE_CLIENTES = ROOT_URL + "createclientes";
     public static final String URL_READ_CLIENTES = ROOT_URL + "getclientes";

@@ -9,6 +9,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -129,4 +133,6 @@
             android:textColor="#fff"
             android:textSize="14sp" />
     </LinearLayout>
+
+    </ScrollView>
 </LinearLayout>

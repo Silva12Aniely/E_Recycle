@@ -1,7 +1,9 @@
 package com.example.e_recycle;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 pass = txtSenha.getText().toString();
 
                 if (login.equals("admin") && pass.equals("admin")) {
-//                    startActivity(new Intent(getApplicationContext(), Pag_Principal_Activity.class));
-//                    finish();
+                    startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "Login ou Senha Inválidos!", Toast.LENGTH_SHORT).show();
                     txtLogin.setText("");
@@ -65,7 +67,14 @@ public class MainActivity extends AppCompatActivity {
         lblEsqueSenha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),"Verifique seu E-mail.", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(),"Verifique seu E-mail.", Toast.LENGTH_SHORT).show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Esqueceu a senha?").setMessage("Digite seu e-mail").setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(getApplicationContext(), "Verifique seu email", Toast.LENGTH_SHORT).show();
+                    }
+                }).setIcon(android.R.drawable.ic_dialog_email).show();
             }
         });
     }

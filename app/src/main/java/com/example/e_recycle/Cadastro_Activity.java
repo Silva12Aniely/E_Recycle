@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,8 +35,10 @@ public class Cadastro_Activity extends AppCompatActivity {
     Button btnCadastrar;
     TextView rLogin;
     ImageView cImg;
-    EditText cNome, cCPF, cTelefone, cEmail, /*cSenha,*/Codcliente;
+    EditText cNome, cCPF, cTelefone, cEmail, /*cSenha,*/
+            Codcliente;
     List<Clientes> ClientesList;
+    ProgressBar progressBar;
 
     boolean isUpdating = false;
 
@@ -47,6 +50,7 @@ public class Cadastro_Activity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.mCadastro);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         rLogin = (TextView) findViewById(R.id.RealizarLogin);
+        progressBar = (ProgressBar) findViewById(R.id.idPBCad);
 
 //        Dados Clientes/Usuario
         Codcliente = (EditText) findViewById(R.id.idCodclientes);
@@ -69,12 +73,12 @@ public class Cadastro_Activity extends AppCompatActivity {
 
                 if (isUpdating) {
                     updateClientes();
-                }else {
-                    createCliente();
+                } else {
+                    createClientes();
                     cNome.setText("");
-                    cCPF.setText("");
-                    cTelefone.setText("");
                     cEmail.setText("");
+                    cTelefone.setText("");
+                    cCPF.setText("");
                     cNome.requestFocus();
                 }
             }
@@ -93,8 +97,9 @@ public class Cadastro_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-            finish();
+//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//            finish();
+            onBackPressed();
         }
         return super.onOptionsItemSelected(item);
     }
@@ -104,7 +109,7 @@ public class Cadastro_Activity extends AppCompatActivity {
         super.onBackPressed();
     }
 
-    private void createCliente() {
+    private void createClientes() {
         String nome = cNome.getText().toString().trim();
         String email = cEmail.getText().toString().trim();
         String telefone = cTelefone.getText().toString().trim();
@@ -203,11 +208,6 @@ public class Cadastro_Activity extends AppCompatActivity {
         isUpdating = false;
     }
 
-    private void deleteCliente(int id) {
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_DELETE_CLIENTES + id, null, CODE_POST_REQUEST);
-        request.execute();
-    }
-
     private void refreshClienteList(JSONArray clientes) throws JSONException {
         ClientesList.clear();
 
@@ -222,7 +222,7 @@ public class Cadastro_Activity extends AppCompatActivity {
                     obj.getInt("CPF")
             ));
         }
-//        ClientesAdapter adapter = new ClientesAdapter(ClientesList);
+
     }
 
     private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {
@@ -230,26 +230,30 @@ public class Cadastro_Activity extends AppCompatActivity {
         HashMap<String, String> params;
         int requestCode;
 
-        PerformNetworkRequest(String url, HashMap<String, String> params, int requestCode) {
+        public PerformNetworkRequest(String url, HashMap<String, String> params, int requestCode) {
             this.url = url;
             this.params = params;
             this.requestCode = requestCode;
         }
 
         @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
-
+            progressBar.setVisibility(View.GONE);
             try {
                 JSONObject object = new JSONObject(s);
                 if (!object.getBoolean("error")) {
                     Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
                     refreshClienteList(object.getJSONArray("clientes"));
                 }
-            }
-            catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "Deu ruim", Toast.LENGTH_LONG).show();
             }
         }
 
@@ -258,44 +262,12 @@ public class Cadastro_Activity extends AppCompatActivity {
             RequestHandler requestHandler = new RequestHandler();
 
             if (requestCode == CODE_POST_REQUEST) {
-                return requestHandler.sendPostRequest(url,params);
+                return requestHandler.sendPostRequest(url, params);
             }
             if (requestCode == CODE_GET_REQUEST) {
                 return requestHandler.sendGetRequest(url);
             }
             return null;
         }
-    }
-
-    class ClientesAdapter extends ArrayAdapter<Clientes> {
-        List<Clientes> clientesList;
-
-        public ClientesAdapter(List<Clientes> clientesList) {
-            super(Cadastro_Activity.this, R.layout.cadastro_layout, clientesList);
-            this.clientesList = clientesList;
-        }
-
-//        @Override
-//        public View getView(int position, View convertView, ViewGroup parent) {
-//            final Button btnCadastrar = findViewById(R.id.btnCadastrar);
-//            final Clientes clientes = clientesList.get(position);
-//
-//            btnCadastrar.setText(clientes.getNOME());
-//
-//            btnCadastrar.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    isUpdating = true;
-//                    Codcliente.setText(String.valueOf(clientes.getCODCLIENTES()));
-//                    cNome.setText(clientes.getNOME());
-//                    cEmail.setText(clientes.getEMAIL());
-//                    cTelefone.setText(clientes.getTELEFONE());
-//                    cCPF.setText(clientes.getCPF());
-//                    btnCadastrar.setText("Deu bom");
-//                }
-//            });
-//
-//            return super.getView(position, convertView, parent);
-//        }
     }
 }

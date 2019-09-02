@@ -15,40 +15,37 @@ import java.util.Map;
 import javax.net.ssl.HttpsURLConnection;
 
 public class RequestHandler {
-    public String sendPostRequest (String requestURL, HashMap<String, String> postDataParams) {
+    public String sendPostRequest(String requestURL, HashMap<String, String> postDataParams) {
         URL url;
 
         StringBuilder sb = new StringBuilder();
         try {
             url = new URL(requestURL);
-
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
 
-            conn.setReadTimeout(1500);
-            conn.setConnectTimeout(1500);
+            conn.setReadTimeout(15000);
+            conn.setConnectTimeout(15000);
             conn.setRequestMethod("POST");
             conn.setDoInput(true);
             conn.setDoOutput(true);
 
             OutputStream os = conn.getOutputStream();
-
             BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(os, "UTF-8"));
             writer.write(getPostDataString(postDataParams));
-
             writer.flush();
             writer.close();
-            int responseCode = conn.getResponseCode();
+            os.close();
 
+            int responseCode = conn.getResponseCode();
             if (responseCode == HttpsURLConnection.HTTP_OK) {
                 BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
                 sb = new StringBuilder();
                 String response;
-
                 while ((response = br.readLine()) != null) {
                     sb.append(response);
                 }
             }
-        }catch (Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return sb.toString();
@@ -65,8 +62,7 @@ public class RequestHandler {
             while ((s = bufferedReader.readLine()) != null) {
                 sb.append(s + "\n");
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
 
         }
         return sb.toString();
@@ -78,8 +74,7 @@ public class RequestHandler {
         for (Map.Entry<String, String> entry : params.entrySet()) {
             if (first) {
                 first = false;
-            }
-            else {
+            } else {
                 result.append("&");
             }
             result.append(URLEncoder.encode(entry.getKey(), "UTF-8"));

@@ -69,12 +69,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                Toast.makeText(getApplicationContext(),"Verifique seu E-mail.", Toast.LENGTH_SHORT).show();
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle("Esqueceu a senha?").setMessage("Digite seu e-mail").setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                builder.setTitle("Esqueceu a senha?")
+                        .setMessage("Digite seu e-mail")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         Toast.makeText(getApplicationContext(), "Verifique seu email", Toast.LENGTH_SHORT).show();
                     }
-                }).setIcon(android.R.drawable.ic_dialog_email).show();
+                }).setIcon(R.drawable.ic_bar).show();
             }
         });
     }

@@ -1,38 +1,58 @@
 package com.example.e_recycle;
 
 public class Clientes {
-    private int CODCLIENTES;
-    private String NOME, EMAIL;
-    private int TELEFONE, CPF;
+    private int codclientes;
+    private String nome, email;
+    private int telefone, cpf;
 
     public Clientes() {
     }
 
-    public Clientes(int CODCLIENTES, String NOME, String EMAIL, int TELEFONE, int CPF) {
-        this.CODCLIENTES = CODCLIENTES;
-        this.NOME = NOME;
-        this.EMAIL = EMAIL;
-        this.TELEFONE = TELEFONE;
-        this.CPF = CPF;
+    public Clientes(int codclientes, String nome, String email, int telefone, int cpf) {
+        this.codclientes = codclientes;
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+        this.cpf = cpf;
     }
 
-    public int getCODCLIENTES() {
-        return CODCLIENTES;
+    public int getCodclientes() {
+        return codclientes;
     }
 
-    public String getNOME() {
-        return NOME;
+    public void setCodclientes(int codclientes) {
+        this.codclientes = codclientes;
     }
 
-    public String getEMAIL() {
-        return EMAIL;
+    public String getNome() {
+        return nome;
     }
 
-    public int getTELEFONE() {
-        return TELEFONE;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public int getCPF() {
-        return CPF;
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public int getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(int telefone) {
+        this.telefone = telefone;
+    }
+
+    public int getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(int cpf) {
+        this.cpf = cpf;
     }
 }

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
+    tools:context=".Coletores_Activity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/mColetores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Coletores"
+        app:titleTextColor="#fff">
+
+    </androidx.appcompat.widget.Toolbar>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fff"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
+
+        <TextView
+            android:id="@+id/lblColetor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Localize um coletor próximo"
+            android:textColor="#fff"
+            android:textSize="25sp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/editCEP"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:padding="5dp"
+            android:background="@drawable/bk_coletores_cep"
+            android:hint="Digite seu CEP"
+            android:inputType="number"
+            android:layout_marginRight="10dp"
+            android:textColorHint="#009D37"
+            android:elevation="2dp"
+            android:layout_below="@id/lblColetor"/>
+
+        <Button
+            android:id="@+id/btnCEP"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@drawable/btn_search_col"
+            android:drawableTop="@drawable/ic_search"
+            android:paddingTop="5dp"
+            android:layout_toRightOf="@id/editCEP"
+            android:layout_below="@id/lblColetor"
+            android:elevation="5dp"/>
+
+        <ListView
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/editCEP"
+            android:id="@+id/lstColetores"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </ListView>
+    </RelativeLayout>
+</LinearLayout>

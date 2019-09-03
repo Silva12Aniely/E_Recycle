@@ -143,11 +143,11 @@ public class Cadastro_Activity extends AppCompatActivity {
 //        }
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("NOME", nome);
-        params.put("EMAIL", email);
-        params.put("TELEFONE", telefone);
-        params.put("CPF", cpf);
-//        params.put("SENHA", senha);
+        params.put("nome", nome);
+        params.put("email", email);
+        params.put("telefone", telefone);
+        params.put("cpf", cpf);
+//        params.put("senha", senha);
 
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_CLIENTES, params, CODE_POST_REQUEST);
         request.execute();
@@ -194,11 +194,11 @@ public class Cadastro_Activity extends AppCompatActivity {
 //        }
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("CODCLIENTES", codcliente);
-        params.put("NOME", nome);
-        params.put("EMAIL", email);
-        params.put("TELEFONE", telefone);
-        params.put("CPF", cpf);
+        params.put("codclientes", codcliente);
+        params.put("nome", nome);
+        params.put("email", email);
+        params.put("telefone", telefone);
+        params.put("cpf", cpf);
 
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_UPDATE_CLIENTES, params, CODE_POST_REQUEST);
         request.execute();
@@ -215,11 +215,11 @@ public class Cadastro_Activity extends AppCompatActivity {
             JSONObject obj = clientes.getJSONObject(i);
 
             ClientesList.add(new Clientes(
-                    obj.getInt("CODCLIENTES"),
-                    obj.getString("NOME"),
-                    obj.getString("EMAIL"),
-                    obj.getInt("TELEFONE"),
-                    obj.getInt("CPF")
+                    obj.getInt("codclientes"),
+                    obj.getString("nome"),
+                    obj.getString("email"),
+                    obj.getInt("telefone"),
+                    obj.getInt("cpf")
             ));
         }
 

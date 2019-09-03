@@ -5,6 +5,7 @@
     android:id="@+id/idRelativeL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     tools:context=".Pag_Menu_Activity">
 
     <androidx.appcompat.widget.Toolbar
@@ -117,18 +118,13 @@
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
-            <androidx.cardview.widget.CardView
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_below="@id/idArtigos"
-                android:layout_toRightOf="@id/idCadColetor"
-                android:elevation="50dp">
-
                 <TextView
                     android:id="@+id/idSobre"
                     android:layout_width="175dp"
                     android:layout_height="180dp"
                     android:layout_marginRight="10dp"
+                    android:layout_toRightOf="@id/idCadColetor"
+                    android:layout_below="@id/idArtigos"
                     android:layout_marginBottom="10dp"
                     android:background="@drawable/txt_bk_six"
                     android:gravity="bottom"
@@ -137,8 +133,6 @@
                     android:textColor="#023012"
                     android:textSize="35sp"
                     android:textStyle="bold" />
-            </androidx.cardview.widget.CardView>
-
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

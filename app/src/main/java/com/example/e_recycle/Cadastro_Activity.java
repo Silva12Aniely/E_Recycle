@@ -36,8 +36,8 @@ public class Cadastro_Activity extends AppCompatActivity {
     TextView rLogin;
     ImageView cImg;
     EditText cNome, cCPF, cTelefone, cEmail, /*cSenha,*/
-            Codcliente;
-    List<Clientes> ClientesList;
+            codCliente;
+    List<Clientes> clientesList;
     ProgressBar progressBar;
 
     boolean isUpdating = false;
@@ -47,20 +47,20 @@ public class Cadastro_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_layout);
 
-        toolbar = (Toolbar) findViewById(R.id.mCadastro);
+        toolbar = (Toolbar) findViewById(R.id.idToolbarCadastro);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         rLogin = (TextView) findViewById(R.id.RealizarLogin);
         progressBar = (ProgressBar) findViewById(R.id.idPBCad);
 
 //        Dados Clientes/Usuario
-        Codcliente = (EditText) findViewById(R.id.idCodclientes);
+        codCliente = (EditText) findViewById(R.id.idCodclientes);
         cImg = (ImageView) findViewById(R.id.cImgUsu);
         cNome = (EditText) findViewById(R.id.cNome_Sobrenome);
         cCPF = (EditText) findViewById(R.id.cCPF);
         cTelefone = (EditText) findViewById(R.id.cTelefone);
         cEmail = (EditText) findViewById(R.id.cEmail);
 //        cSenha = (EditText) findViewById(R.id.cSenha);
-        ClientesList = new ArrayList<>();
+        clientesList = new ArrayList<>();
 
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -160,7 +160,7 @@ public class Cadastro_Activity extends AppCompatActivity {
     }
 
     private void updateClientes() {
-        String codcliente = Codcliente.getText().toString();
+        String codcliente = codCliente.getText().toString();
         String nome = cNome.getText().toString().trim();
         String cpf = cCPF.getText().toString().trim();
         String telefone = cTelefone.getText().toString().trim();
@@ -209,12 +209,12 @@ public class Cadastro_Activity extends AppCompatActivity {
     }
 
     private void refreshClienteList(JSONArray clientes) throws JSONException {
-        ClientesList.clear();
+        clientesList.clear();
 
         for (int i = 0; i < clientes.length(); i++) {
             JSONObject obj = clientes.getJSONObject(i);
 
-            ClientesList.add(new Clientes(
+            clientesList.add(new Clientes(
                     obj.getInt("codclientes"),
                     obj.getString("nome"),
                     obj.getString("email"),
@@ -222,7 +222,6 @@ public class Cadastro_Activity extends AppCompatActivity {
                     obj.getInt("cpf")
             ));
         }
-
     }
 
     private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {

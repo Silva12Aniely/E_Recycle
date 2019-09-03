@@ -9,7 +9,7 @@
     tools:context=".Cadastro_Activity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mCadastro"
+        android:id="@+id/idToolbarCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:title="Cadastro"

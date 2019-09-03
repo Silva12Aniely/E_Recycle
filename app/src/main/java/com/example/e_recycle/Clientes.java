@@ -1,7 +1,7 @@
 package com.example.e_recycle;
 
 public class Clientes {
-    private int codclientes;
+    private int codClientes;
     private String nome, email;
     private int telefone, cpf;
 
@@ -9,7 +9,7 @@ public class Clientes {
     }
 
     public Clientes(int codclientes, String nome, String email, int telefone, int cpf) {
-        this.codclientes = codclientes;
+        this.codClientes = codclientes;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -17,11 +17,11 @@ public class Clientes {
     }
 
     public int getCodclientes() {
-        return codclientes;
+        return codClientes;
     }
 
     public void setCodclientes(int codclientes) {
-        this.codclientes = codclientes;
+        this.codClientes = codclientes;
     }
 
     public String getNome() {

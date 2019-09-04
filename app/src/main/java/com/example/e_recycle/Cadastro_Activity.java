@@ -114,7 +114,6 @@ public class Cadastro_Activity extends AppCompatActivity {
         String email = cEmail.getText().toString().trim();
         String telefone = cTelefone.getText().toString().trim();
         String cpf = cCPF.getText().toString().trim();
-//        String senha = cSenha.getText().toString().trim();
 
         if (TextUtils.isEmpty(nome)) {
             cNome.setError("Insira seu nome");
@@ -136,22 +135,15 @@ public class Cadastro_Activity extends AppCompatActivity {
             cCPF.requestFocus();
             return;
         }
-//        if (TextUtils.isEmpty(senha)) {
-//            cSenha.setError("Insira uma senha");
-//            cSenha.requestFocus();
-//            return;
-//        }
 
         HashMap<String, String> params = new HashMap<>();
         params.put("nome", nome);
         params.put("email", email);
         params.put("telefone", telefone);
         params.put("cpf", cpf);
-//        params.put("senha", senha);
 
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_CLIENTES, params, CODE_POST_REQUEST);
         request.execute();
-        Toast.makeText(getApplicationContext(), "Cadastrado(a) com sucesso!", Toast.LENGTH_SHORT).show();
     }
 
     private void readClientes() {

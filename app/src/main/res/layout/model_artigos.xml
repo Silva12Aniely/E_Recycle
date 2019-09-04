@@ -24,7 +24,7 @@
             android:padding="5dp"
             android:text="@string/cadastrar"
             android:textColor="#000"
-            android:textSize="22sp" />
+            android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/imgArtigo"
@@ -39,7 +39,8 @@
             android:layout_below="@id/txtTitulo"
             android:layout_toRightOf="@id/imgArtigo"
             android:padding="5dp"
-            android:text="Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. \nTodas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."
+            android:text="descricao"
             android:textAlignment="inherit" />
     </RelativeLayout>
+
 </androidx.cardview.widget.CardView>

@@ -1,138 +1,219 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/idRelativeL"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".Pag_Menu_Activity">
+    android:orientation="vertical"
+    tools:context=".Voce_Sabia_Activity">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/mCadastro"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background">
-
+        android:padding="3dp">
         <include
             layout="@layout/toolbar_pag_inicial"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </androidx.appcompat.widget.Toolbar>
 
     <View
         android:id="@+id/idView"
         android:layout_width="match_parent"
         android:layout_height="2dp"
-        android:layout_below="@id/mCadastro"
         android:background="#fff" />
 
-    <ScrollView
+    <GridLayout
+        android:columnCount="2"
+        android:rowCount="4"
+        android:alignmentMode="alignMargins"
+        android:columnOrderPreserved="false"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/idView">
+        android:padding="14dp">
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="25dp"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvColetor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
             android:clickable="true"
-            android:focusable="true"
-            android:foreground="?attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground">
 
-            <TextView
-                android:id="@+id/idColetores"
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/txt_bk_one"
-                android:gravity="bottom"
-                android:padding="15dp"
-                android:text="Coletores"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/idmPerfil"
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@id/idColetores"
-                android:background="@drawable/txt_bk_two"
-                android:gravity="top"
-                android:paddingLeft="15dp"
-                android:paddingTop="5dp"
-                android:text="Meu\nPerfil"
-                android:textColor="#023012"
-                android:textSize="35sp"
-                android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/idColetores"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Coletores"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textColor="#023012"
+                    android:textStyle="bold"/>
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/idVSabia"
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_below="@id/idColetores"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/txt_bk_three"
-                android:gravity="top"
-                android:padding="15dp"
-                android:text="Você\nSabia?"
-                android:textColor="#023012"
-                android:textSize="33sp"
-                android:textStyle="bold" />
+        </androidx.cardview.widget.CardView>
 
-            <TextView
-                android:id="@+id/idArtigos"
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_below="@id/idmPerfil"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_toRightOf="@id/idVSabia"
-                android:background="@drawable/txt_bk_four"
-                android:gravity="bottom"
-                android:padding="15dp"
-                android:text="Artigos"
-                android:textColor="#023012"
-                android:textSize="35sp"
-                android:textStyle="bold" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMPerfil"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
-            <TextView
-                android:id="@+id/idCadColetor"
-                android:layout_width="175dp"
-                android:layout_height="180dp"
-                android:layout_below="@id/idVSabia"
-                android:layout_marginRight="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/txt_bk_five"
-                android:gravity="right"
-                android:paddingTop="95dp"
-                android:paddingRight="5dp"
-                android:text="Cadastre-se\ncomo coletor"
-                android:textColor="#023012"
-                android:textSize="28sp"
-                android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/idmPerfil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Meu\nPerfil"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textColor="#023012"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvVoceSabia"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/idVSabia"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Você Sabia?"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textColor="#023012"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvArtigos"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/idArtigos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Artigos"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textColor="#023012"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvCadColetor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/idCadColetor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Cadastre-se\ncomo coletor"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
+                    android:textColor="#023012"
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvSobre"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_columnWeight="1"
+            android:layout_rowWeight="1"
+            app:cardElevation="8dp"
+            app:cardCornerRadius="5dp"
+            android:layout_margin="16dp"
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/idSobre"
-                    android:layout_width="175dp"
-                    android:layout_height="180dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_toRightOf="@id/idCadColetor"
-                    android:layout_below="@id/idArtigos"
-                    android:layout_marginBottom="10dp"
-                    android:background="@drawable/txt_bk_six"
-                    android:gravity="bottom"
-                    android:padding="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     android:text="Sobre"
+                    android:textAlignment="center"
+                    android:textSize="22sp"
                     android:textColor="#023012"
-                    android:textSize="35sp"
-                    android:textStyle="bold" />
-        </RelativeLayout>
-    </ScrollView>
-</RelativeLayout>
+                    android:textStyle="bold"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+    </GridLayout>
+</LinearLayout>

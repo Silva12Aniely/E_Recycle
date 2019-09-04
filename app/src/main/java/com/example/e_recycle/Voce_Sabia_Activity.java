@@ -13,6 +13,7 @@ import java.util.List;
 
 public class Voce_Sabia_Activity extends AppCompatActivity {
     Toolbar tvSabia;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,15 +32,13 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-        }
+        startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+        finish();
         return super.onOptionsItemSelected(item);
     }
 
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
     }
 }

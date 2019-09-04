@@ -21,6 +21,7 @@
         android:layout_height="2dp"
         android:background="#fff"/>
 
+
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/idRVArtigos"
     android:layout_width="match_parent"

@@ -10,28 +10,36 @@
     android:foreground="?android:attr/selectableItemBackground"
     app:cardCornerRadius="5dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <RelativeLayout
+        android:id="@+id/idRLArtigos"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content">
+
         <TextView
+            android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/cadastrar"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent">
+            android:layout_toEndOf="@id/imgArtigo"
+            android:layout_toRightOf="@id/imgArtigo"
+            android:padding="5dp"
+            android:text="@string/cadastrar"
+            android:textColor="#000"
+            android:textSize="22sp" />
+
         <ImageView
+            android:id="@+id/imgArtigo"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:src="@drawable/thumb_art"/>
+            android:layout_height="wrap_content"
+            android:src="@drawable/thumb_art" />
 
         <TextView
             android:id="@+id/txtArtigos"
-            android:padding="5dp"
-            android:textAlignment="inherit"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. \nTodas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."/>
-    </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txtTitulo"
+            android:layout_toRightOf="@id/imgArtigo"
+            android:padding="5dp"
+            android:text="Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. \nTodas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."
+            android:textAlignment="inherit" />
+    </RelativeLayout>
 </androidx.cardview.widget.CardView>

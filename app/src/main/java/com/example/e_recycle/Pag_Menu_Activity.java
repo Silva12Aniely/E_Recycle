@@ -9,7 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Pag_Menu_Activity extends AppCompatActivity {
-    TextView idColetores, idVSabia;
+    TextView idColetores, idVSabia, idArtigos;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,7 @@ public class Pag_Menu_Activity extends AppCompatActivity {
 
         idColetores = (TextView) findViewById(R.id.idColetores);
         idVSabia = (TextView) findViewById(R.id.idVSabia);
+        idArtigos = (TextView) findViewById(R.id.idArtigos);
 
         idColetores.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -33,5 +34,13 @@ public class Pag_Menu_Activity extends AppCompatActivity {
                 finish();
             }
         });
+        idArtigos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Artigos_Activity.class));
+                finish();
+            }
+        });
+
     }
 }

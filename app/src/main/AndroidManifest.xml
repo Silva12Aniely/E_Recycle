@@ -19,7 +19,13 @@
         <activity android:name=".Sobre_Activity" />
         <activity android:name=".Cad_Coletor_Activity" />
         <activity android:name=".Artigos_Activity" />
-        <activity android:name=".Voce_Sabia_Activity" />
+        <activity android:name=".Voce_Sabia_Activity" android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".Perfil_Usuario_Activity" />
         <activity android:name=".Coletores_Activity" />
         <activity android:name=".Pag_Menu_Activity">
@@ -28,11 +34,7 @@
         <activity android:name=".Cadastro_Activity" />
         <activity android:name=".Splash_Activity" />
         <activity android:name=".MainActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

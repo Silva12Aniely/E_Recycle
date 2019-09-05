@@ -17,6 +17,12 @@
     <string name="paragrafo1">Quando falamos de “tecnologia” quase nunca relacionamos essa palavra com a natureza e muitos pensam que os dois não se combinam, engana-se quem pensa desta forma por que os dispositivos tecnológicos e a natureza tem muita proximidade assim como qualquer outra coisa que falarmos tem total relação com o meio ambiente, e sabendo que em toda parte do nosso planeta temos tecnologia e que grande parte das pessoas não sabem como que a tecnologia pode afetar negativamente nosso ecossistema criamos a E-Recycle.</string>
     <string name="paragrafo2">A E-Recycle é formada por um grupo de jovens cursando no Senac largo treze o curso técnico em tecnologia da informação, que fez esse projeto pensando muito além de conseguir uma boa nota ou um diploma, mas predisposto a conseguir alcançar o objetivo de levar informação e conscientização do descarte correto de lixos eletrônicos e sua importância de ser discutido na sociedade, porém esse era nosso pensamento a priori, conforme o decorrer do projeto vimos uma grande necessidade de tentar a levar ajuda para pessoas que tem como sua principal fonte de renda a coleta de lixos recicláveis, por isso criamos nossos aplicativos Web e mobile para que além de levar a conscientização possamos levar auxilio para aqueles nos ajuda a manter um ciclo de sustentabilidade em nosso planeta, por isso visamos continuar a levar compreensão do por que é tão importante descartar de forma correta lixos eletrônicos e qualquer outro tipo de lixo de origem reciclável, mas também mostrar quem pode te ajudar a levar esses componentes para locais específicos de descarte.</string>
 
+    <!--voce sabia?-->
+    <string name="cpu">Contem silício - um elemento químico que se inalado pode causar pneumonia, silicose e até câncer de pulmão.</string>
+    <string name="hd">O alumínio é um dos elementos químicos presentes nos HDs ele é carcinogênico para humanos, causando câncer. O seu vapor é altamente tóxico e se dissolve fácil em alimentos e bebidas, também causa disfunções neurológicas, convulsões entre outros danos.</string>
+    <string name="info_voce_sabia">Os descartes incorretos de lixos eletrônicos provocam a liberação de substâncias poluentes que contaminam o solo e fazem mal aos serem vivos (Plantas, Humanos e Animais).</string>
+    <string name="info_voce_sabia_b">Clique e conheça algumas delas</string>
+
     <array name="Regiões">
         <item>Zona Sul</item>
     </array>

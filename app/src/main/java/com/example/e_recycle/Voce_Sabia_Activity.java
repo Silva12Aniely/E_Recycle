@@ -1,6 +1,7 @@
 package com.example.e_recycle;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.TooltipCompat;
@@ -21,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -28,10 +30,8 @@ import it.sephiroth.android.library.tooltip.Tooltip;
 
 public class Voce_Sabia_Activity extends AppCompatActivity {
     Toolbar tvSabia;
-    GridView idVSgrid;
+    CardView vs_cpu, vs_screen, vs_psu, vs_hd, vs_keyb, vs_mBoard, vs_ram, vs_gpu;
 
-    String[] txtVS = {"CPU", "Monitor", "Fonte", "HD",  "Teclado",  "Placa Mãe",  "Memória Ram",  "Placa de Video"};
-    int[] imgVS = {R.drawable.vs_cpu, R.drawable.vs_desktop, R.drawable.vs_fonte, R.drawable.vs_harddisk,  R.drawable.vs_keyboard, R.drawable.vs_motherboard, R.drawable.vs_ramemory, R.drawable.vs_gpu};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,63 +39,36 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
         setContentView(R.layout.voce_sabia_layout);
 
         tvSabia = (Toolbar) findViewById(R.id.TvSabia);
-        idVSgrid = (GridView) findViewById(R.id.idVSgrid) ;
+        vs_cpu = (CardView) findViewById(R.id.vs_cpu);
+        vs_hd = (CardView) findViewById(R.id.vs_HD);
+        vs_screen = (CardView) findViewById(R.id.vs_screen);
 
         setSupportActionBar(tvSabia);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        CustomAdapter customAdapter = new CustomAdapter();
-        idVSgrid.setAdapter(customAdapter);
-
-        idVSgrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//        Cards
+        vs_cpu.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Procesadores").setMessage(R.string.cpu).show();
+            }
+        });
+        vs_hd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Hard Disk").setMessage(R.string.hd).show();
+            }
+        });
+        vs_screen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Tela de Monitor").setMessage("Contêm mercúrio, e pode causa transtornos digestivos, possibilidades de alteração cromossômica.").show();
             }
         });
 
-    }
-
-//    public void bottomToolTip(View view) {
-//        Button bottomToolTip = (Button) findViewById(R.id.bottomToolTip);
-//
-//        Tooltip.make(this, new Tooltip.Builder(101)
-//            .anchor(bottomToolTip, Tooltip.Gravity.BOTTOM)
-//            .closePolicy(new Tooltip.ClosePolicy().insidePolicy(true, false).outsidePolicy(true, false), 4000)
-//            .activateDelay(900).showDelay(400)
-//            .text("Cliquei aqui para exibir mensagem").maxWidth(600).withArrow(true).withOverlay(true).build()
-//        ).show();
-//    }
-
-    public class CustomAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return imgVS.length;
-        }
-
-        @Override
-        public Object getItem(int position) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View view1 = getLayoutInflater().inflate(R.layout.model_voce_sabia, null);
-
-            TextView comp = view1.findViewById(R.id.txtVs);
-            ImageView imgVs = view1.findViewById(R.id.imgVs);
-
-            comp.setText(txtVS[position]);
-            imgVs.setImageResource(imgVS[position]);
-
-            return view1;
-        }
     }
 
     @Override

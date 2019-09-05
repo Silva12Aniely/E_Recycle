@@ -1,32 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    android:orientation="vertical"
     tools:context=".Cadastro_Activity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/idToolbarCadastro"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="Cadastro"
-        app:titleTextColor="#fff">
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/idToolbarCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Cadastro"
+            app:titleTextColor="#fff">
 
-    </androidx.appcompat.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff" />
+        <View
+            android:layout_below="@id/idToolbarCadastro"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <LinearLayout
+            android:layout_marginTop="60dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -37,7 +42,6 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical">
-
                 <ImageView
                     android:id="@+id/cImgUsu"
                     android:layout_width="wrap_content"
@@ -45,6 +49,7 @@
                     android:src="@drawable/add_photo_profile" />
 
             </LinearLayout>
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -136,18 +141,19 @@
                     android:textColorHint="#A1009F35"
                     android:textSize="20sp" />
 
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:gravity="center">
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
 
                     <TextView
                         android:id="@+id/RealizarLogin"
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
                         android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="10dp"
                         android:layout_marginRight="25dp"
                         android:text="@string/realizar_login"
                         android:textAlignment="center"
@@ -158,22 +164,26 @@
                         android:id="@+id/btnCadastrar"
                         android:layout_width="140dp"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginBottom="40dp"
-                        android:layout_toEndOf="@id/RealizarLogin"
-                        android:layout_toRightOf="@id/RealizarLogin"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
                         android:background="@drawable/btn_entrar"
                         android:text="@string/cadastrar"
                         android:textAllCaps="false"
                         android:textColor="#fff"
                         android:textSize="22sp" />
-                </RelativeLayout>
+                </LinearLayout>
             </LinearLayout>
-            <ProgressBar
-                android:id="@+id/idPBCad"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
-</LinearLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/idPBCad"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

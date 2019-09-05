@@ -77,9 +77,8 @@ public class Coletores_Activity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == android.R.id.home) {
-//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//            finish();
-            onBackPressed();
+            startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+            finish();
         }
         return super.onOptionsItemSelected(item);
     }

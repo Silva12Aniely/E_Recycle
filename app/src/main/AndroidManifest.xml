@@ -13,16 +13,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Artigos_Activity"></activity>
-        <activity android:name=".Voce_Sabia_Activity"></activity>
+        <activity android:name=".Perfil_Coletor_Activity">
+
+        </activity>
+        <activity android:name=".Sobre_Activity" />
+        <activity android:name=".Cad_Coletor_Activity" />
+        <activity android:name=".Artigos_Activity" />
+        <activity android:name=".Voce_Sabia_Activity" />
         <activity android:name=".Perfil_Usuario_Activity" />
         <activity android:name=".Coletores_Activity" />
         <activity android:name=".Pag_Menu_Activity">
 
         </activity>
         <activity android:name=".Cadastro_Activity" />
-        <activity android:name=".Splash_Activity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Splash_Activity" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -8,7 +8,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="130dp"
         android:background="#fff"
         android:layout_margin="10dp">
 
@@ -32,9 +32,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
+            android:stepSize="1"
             android:layout_toRightOf="@id/imgColetor"
-            style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressBackgroundTint="#00761C"
+            android:progressBackgroundTint="#6D2F6F0E"
             android:saveEnabled="true"/>
 
         <TextView

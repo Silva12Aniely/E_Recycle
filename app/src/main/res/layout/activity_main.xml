@@ -9,11 +9,7 @@
     android:orientation="vertical"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
-    <ProgressBar
-        android:id="@+id/idpbLogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -132,12 +128,22 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:gravity="center"
             android:text="@string/e_recycle_todos_os_direitos_reservados_2019"
             android:textColor="#fff"
             android:textSize="14sp" />
     </LinearLayout>
-
     </ScrollView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ProgressBar
+            android:id="@+id/idpbLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

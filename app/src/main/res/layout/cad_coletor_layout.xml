@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Cad_Coletor_Activity"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/idToolbarCadColetor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="Cadastro do coletor"
+        app:titleTextColor="#fff">
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#fff" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="30dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:text="Quer se cadastrar\ncomo coletor?"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Insira seu telefone"
+            android:textAlignment="center"
+            android:textColor="#fff"
+            android:textSize="22sp"
+            android:layout_marginTop="20dp"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="15dp"
+            android:inputType="phone"
+            android:background="@drawable/background_cadastro"
+            android:textSize="28sp"
+            android:padding="5dp"/>
+
+        <Button
+            android:id="@+id/btnCadColetor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/btn_entrar"
+            android:layout_marginTop="15dp"
+            android:text="Cadastrar"
+            android:textColor="#fff"
+            android:padding="20dp"
+            android:textSize="18sp"/>
+
+    </LinearLayout>
+</LinearLayout>

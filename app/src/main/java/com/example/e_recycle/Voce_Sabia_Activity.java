@@ -32,8 +32,9 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
-        finish();
+        if (item.getItemId() == android.R.id.home) {
+            startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+        }
         return super.onOptionsItemSelected(item);
     }
 

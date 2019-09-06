@@ -6,7 +6,32 @@
     android:layout_height="match_parent"
     tools:context=".Sobre_Activity"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background">
 
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_toRightOf="@id/btnVoltar"
+            android:id="@+id/idSobre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Sobre Nós"
+            app:titleTextColor="#fff"
+            android:layout_toEndOf="@id/btnVoltar" />
+        <View
+            android:layout_below="@id/idSobre"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -22,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="28sp"
                 android:textStyle="bold"
-                android:text="Sobre Nós"
+                android:text="@string/projeto_e_recycle"
                 android:textColor="#fff"
                 android:background="@drawable/background"
                 android:textAlignment="center"
@@ -38,6 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
+                android:paddingBottom="40dp"
                 android:text="@string/paragrafo2"/>
 
         </LinearLayout>

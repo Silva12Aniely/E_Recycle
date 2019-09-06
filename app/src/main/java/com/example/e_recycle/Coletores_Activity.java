@@ -5,18 +5,19 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RatingBar;
 
 public class Coletores_Activity extends AppCompatActivity {
     Toolbar toolbar;
     ListView listView;
+    Button btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,10 +26,11 @@ public class Coletores_Activity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.mColetores);
         listView = (ListView) findViewById(R.id.lstColetores);
+        btnVoltar = (Button) findViewById(R.id.btnVoltar);
         final RatingBar ratingBar = findViewById(R.id.idRatingColetor);
 
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
 
         CustomAdapter customAdapter = new CustomAdapter();
         listView.setAdapter(customAdapter);
@@ -42,7 +44,16 @@ public class Coletores_Activity extends AppCompatActivity {
 //                Toast.makeText(getApplicationContext(), "Cliquei aqui!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+                finish();
+            }
+        });
     }
+
 
     private class CustomAdapter extends BaseAdapter {
 
@@ -69,22 +80,10 @@ public class Coletores_Activity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
+        startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+        finish();
 
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+        return super.onOptionsItemSelected(item);
     }
 }

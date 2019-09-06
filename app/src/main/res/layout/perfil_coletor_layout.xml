@@ -15,7 +15,7 @@
 
         <Button
             android:id="@+id/mVoltar"
-            android:layout_width="50dp"
+            android:layout_width="40dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:background="#00FFFFFF"

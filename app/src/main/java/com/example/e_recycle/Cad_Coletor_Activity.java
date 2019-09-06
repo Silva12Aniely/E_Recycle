@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 public class Cad_Coletor_Activity extends AppCompatActivity {
     Toolbar toolbar;
-    Button btnCadColetor;
+    Button btnCadColetor, btnVoltar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +22,7 @@ public class Cad_Coletor_Activity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.idToolbarCadColetor);
         btnCadColetor = (Button) findViewById(R.id.btnCadColetor);
+        btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
         btnCadColetor.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,19 +30,12 @@ public class Cad_Coletor_Activity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Cadastro Coletor", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+                finish();
+            }
+        });
     }
 }

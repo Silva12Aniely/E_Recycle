@@ -9,19 +9,30 @@
     android:orientation="vertical"
     tools:context=".Perfil_Usuario_Activity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mUsuperfil"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="Perfil"
-        app:titleTextColor="#fff">
+        android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff" />
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_toRightOf="@id/btnVoltar"
+            android:id="@+id/mUsuperfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Você Sabia?"
+            app:titleTextColor="#fff"/>
+        <View
+            android:layout_below="@id/mUsuperfil"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -31,7 +42,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_gravity="center">
+            android:layout_gravity="center"
+            android:focusable="false"
+            android:focusableInTouchMode="false">
 
             <ImageView
                 android:layout_width="220dp"
@@ -105,6 +118,7 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/txtSair"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sair"

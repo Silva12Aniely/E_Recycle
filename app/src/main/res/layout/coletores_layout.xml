@@ -8,18 +8,32 @@
     android:orientation="vertical"
     tools:context=".Coletores_Activity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/mColetores"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="Coletores"
-        app:titleTextColor="#fff">
+        android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff"/>
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_toRightOf="@id/btnVoltar"
+            android:id="@+id/mColetores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Você Sabia?"
+            app:titleTextColor="#fff"
+            android:layout_toEndOf="@id/btnVoltar" />
+        <View
+            android:layout_below="@id/mColetores"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"

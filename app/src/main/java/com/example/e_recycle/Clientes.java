@@ -3,25 +3,26 @@ package com.example.e_recycle;
 public class Clientes {
     private int codClientes;
     private String nome, email;
-    private int telefone, cpf;
+    private int telefone;
+    private String cpf;
 
     public Clientes() {
     }
 
-    public Clientes(int codclientes, String nome, String email, int telefone, int cpf) {
-        this.codClientes = codclientes;
+    public Clientes(int codClientes, String nome, String email, int telefone, String cpf) {
+        this.codClientes = codClientes;
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.cpf = cpf;
     }
 
-    public int getCodclientes() {
+    public int getCodClientes() {
         return codClientes;
     }
 
-    public void setCodclientes(int codclientes) {
-        this.codClientes = codclientes;
+    public void setCodClientes(int codClientes) {
+        this.codClientes = codClientes;
     }
 
     public String getNome() {
@@ -48,11 +49,11 @@ public class Clientes {
         this.telefone = telefone;
     }
 
-    public int getCpf() {
+    public String getCpf() {
         return cpf;
     }
 
-    public void setCpf(int cpf) {
+    public void setCpf(String cpf) {
         this.cpf = cpf;
     }
 }

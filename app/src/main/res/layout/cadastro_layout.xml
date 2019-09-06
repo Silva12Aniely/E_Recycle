@@ -10,17 +10,24 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btnVoltarc"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/idToolbarCadastro"
+            android:layout_toRightOf="@id/btnVoltarc"
+            android:id="@+id/idCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Cadastro"
-            app:titleTextColor="#fff">
-
-        </androidx.appcompat.widget.Toolbar>
-
+            app:title="Você Sabia?"
+            app:titleTextColor="#fff"
+            android:layout_toEndOf="@id/btnVoltarc" />
         <View
-            android:layout_below="@id/idToolbarCadastro"
+            android:layout_below="@id/idCadastro"
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#fff" />
@@ -44,12 +51,11 @@
                 android:orientation="vertical">
                 <ImageView
                     android:id="@+id/cImgUsu"
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@drawable/add_photo_profile" />
-
             </LinearLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -89,7 +95,7 @@
                     android:layout_marginRight="40dp"
                     android:background="@drawable/edit_cadastro"
                     android:hint="@string/cpf"
-                    android:inputType="text"
+                    android:inputType="number"
                     android:padding="10dp"
                     android:textColor="#009f35"
                     android:textColorHint="#A1009F35"

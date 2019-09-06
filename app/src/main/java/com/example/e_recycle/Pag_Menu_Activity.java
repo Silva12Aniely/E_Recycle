@@ -71,9 +71,9 @@ public class Pag_Menu_Activity extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-           onBackPressed();
-        }
+//        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//        finish();
+        onBackPressed();
         return super.onOptionsItemSelected(item);
     }
 

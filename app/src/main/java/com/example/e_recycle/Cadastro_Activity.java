@@ -32,7 +32,7 @@ public class Cadastro_Activity extends AppCompatActivity {
     private static final int CODE_POST_REQUEST = 1025;
 
     Toolbar toolbar;
-    Button btnCadastrar;
+    Button btnCadastrar, btnVoltar;
     TextView rLogin;
     ImageView cImg;
     EditText cNome, cCPF, cTelefone, cEmail, /*cSenha,*/
@@ -47,9 +47,10 @@ public class Cadastro_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cadastro_layout);
 
-        toolbar = (Toolbar) findViewById(R.id.idToolbarCadastro);
+        toolbar = (Toolbar) findViewById(R.id.idCadastro);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         rLogin = (TextView) findViewById(R.id.RealizarLogin);
+        btnVoltar = (Button) findViewById(R.id.btnVoltarc);
         progressBar = (ProgressBar) findViewById(R.id.idPBCad);
 
 //        Dados Clientes/Usuario
@@ -62,25 +63,16 @@ public class Cadastro_Activity extends AppCompatActivity {
 //        cSenha = (EditText) findViewById(R.id.cSenha);
         clientesList = new ArrayList<>();
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                btnCadastrar.setEnabled(false);
-//                btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
-
-                if (isUpdating) {
-                    updateClientes();
-                } else {
-                    createClientes();
-                    cNome.setText("");
-                    cEmail.setText("");
-                    cTelefone.setText("");
-                    cCPF.setText("");
-                    cNome.requestFocus();
-                }
+                createClientes();
+                cNome.setText("");
+                cEmail.setText("");
+                cTelefone.setText("");
+                cCPF.setText("");
+                btnCadastrar.setEnabled(false);
+                btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
             }
         });
         rLogin.setOnClickListener(new View.OnClickListener() {
@@ -90,23 +82,16 @@ public class Cadastro_Activity extends AppCompatActivity {
                 finish();
             }
         });
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
+//                finish();
+                Toast.makeText(getApplicationContext(), "Cliquei", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         readClientes();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-//            startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//            finish();
-            onBackPressed();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
     }
 
     private void createClientes() {
@@ -151,55 +136,6 @@ public class Cadastro_Activity extends AppCompatActivity {
         request.execute();
     }
 
-    private void updateClientes() {
-        String codcliente = codCliente.getText().toString();
-        String nome = cNome.getText().toString().trim();
-        String cpf = cCPF.getText().toString().trim();
-        String telefone = cTelefone.getText().toString().trim();
-        String email = cEmail.getText().toString().trim();
-//        String senha = cSenha.getText().toString().trim();
-
-        if (TextUtils.isEmpty(nome)) {
-            cNome.setError("Insira seu nome");
-            cNome.requestFocus();
-            return;
-        }
-        if (TextUtils.isEmpty(cpf)) {
-            cCPF.setError("Insira seu CPF");
-            cCPF.requestFocus();
-            return;
-        }
-        if (TextUtils.isEmpty(telefone)) {
-            cTelefone.setError("Insira um telefone");
-            cTelefone.requestFocus();
-            return;
-        }
-        if (TextUtils.isEmpty(email)) {
-            cEmail.setError("Insira seu e-mail");
-            cEmail.requestFocus();
-            return;
-        }
-//        if (TextUtils.isEmpty(senha)) {
-//            cSenha.setError("Insira uma nova senha");
-//            cSenha.requestFocus();
-//            return;
-//        }
-
-        HashMap<String, String> params = new HashMap<>();
-        params.put("codclientes", codcliente);
-        params.put("nome", nome);
-        params.put("email", email);
-        params.put("telefone", telefone);
-        params.put("cpf", cpf);
-
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_UPDATE_CLIENTES, params, CODE_POST_REQUEST);
-        request.execute();
-
-        btnCadastrar.setText("Atualizado");
-
-        isUpdating = false;
-    }
-
     private void refreshClienteList(JSONArray clientes) throws JSONException {
         clientesList.clear();
 
@@ -211,7 +147,7 @@ public class Cadastro_Activity extends AppCompatActivity {
                     obj.getString("nome"),
                     obj.getString("email"),
                     obj.getInt("telefone"),
-                    obj.getInt("cpf")
+                    obj.getString("cpf")
             ));
         }
     }

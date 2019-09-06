@@ -8,14 +8,31 @@
     android:background="@drawable/background"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/idToolbarCadColetor"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="Cadastro do coletor"
-        app:titleTextColor="#fff">
+        android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_toRightOf="@id/btnVoltar"
+            android:id="@+id/idToolbarCadColetor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Você Sabia?"
+            app:titleTextColor="#fff"
+            android:layout_toEndOf="@id/btnVoltar" />
+        <View
+            android:layout_below="@id/idToolbarCadColetor"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
 
     <View
         android:layout_width="match_parent"

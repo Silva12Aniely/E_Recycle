@@ -8,18 +8,30 @@
     tools:context=".Artigos_Activity"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/idToolbarArtigos"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:title="Artigos"
-        app:titleTextColor="#fff">
+        android:layout_height="wrap_content">
 
-    </androidx.appcompat.widget.Toolbar>
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="2dp"
-        android:background="#fff"/>
+        <Button
+            android:id="@+id/btnVoltar"
+            android:layout_width="40dp"
+            android:layout_centerVertical="true"
+            android:layout_height="33dp"
+            android:background="#00FFFFFF"
+            android:drawableLeft="@drawable/ic_arrow_menu"/>
+        <androidx.appcompat.widget.Toolbar
+            android:layout_toRightOf="@id/btnVoltar"
+            android:id="@+id/idToolbarArtigos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:title="Você Sabia?"
+            app:titleTextColor="#fff"/>
+        <View
+            android:layout_below="@id/idToolbarArtigos"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#fff" />
+    </RelativeLayout>
 
 
 <androidx.recyclerview.widget.RecyclerView

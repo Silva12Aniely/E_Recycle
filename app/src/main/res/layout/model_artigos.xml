@@ -19,25 +19,23 @@
             android:id="@+id/txtTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/imgArtigo"
-            android:layout_toRightOf="@id/imgArtigo"
+            android:layout_below="@id/imgArtigo"
             android:padding="5dp"
-            android:text="@string/cadastrar"
+            android:text="Titulo"
             android:textColor="#000"
             android:textSize="25sp" />
 
         <ImageView
             android:id="@+id/imgArtigo"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/thumb_art" />
+            android:layout_height="240dp"
+            android:src="@drawable/art_full"/>
 
         <TextView
             android:id="@+id/txtArtigos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/txtTitulo"
-            android:layout_toRightOf="@id/imgArtigo"
             android:padding="5dp"
             android:text="descricao"
             android:textAlignment="inherit" />

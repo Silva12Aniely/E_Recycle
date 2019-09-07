@@ -16,17 +16,17 @@ import java.util.List;
 
 public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.MyViewHolder> {
     private Context dcontext;
-    private List<Artigos> artigosList;
+    private List<Artigos> martigosList;
 
-    public RecyclerVAdapter(Context dcontext, List<Artigos> artigosList) {
+    public RecyclerVAdapter(Context dcontext, List<Artigos> martigosList) {
         this.dcontext = dcontext;
-        this.artigosList = artigosList;
+        this.martigosList = martigosList;
     }
 
 
     @NonNull
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public RecyclerVAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
 
         LayoutInflater layoutInflater = LayoutInflater.from(dcontext);
@@ -35,36 +35,42 @@ public class RecyclerVAdapter extends RecyclerView.Adapter<RecyclerVAdapter.MyVi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.imageArtigo.setImageResource(artigosList.get(position).getImgArtigo());
-        holder.titulo.setText(artigosList.get(position).getTitulo());
-        holder.descricao.setText(artigosList.get(position).getDescricao());
+    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+        holder.idTitulo.setText(martigosList.get(position).getTitulo());
+        holder.idImg.setImageResource(martigosList.get(position).getImgArtigo());
+        holder.idConteudo.setText(martigosList.get(position).getDescricao());
 
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.idCVArtigos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(dcontext, Artigos_Completo_Activity.class);
+                intent.putExtra("data", martigosList.get(position).getData());
+                intent.putExtra("titulo", martigosList.get(position).getTitulo());
+                intent.putExtra("imgArtigo", martigosList.get(position).getImgArtigo());
+                intent.putExtra("descricao", martigosList.get(position).getDescricao());
+                intent.putExtra("autor", martigosList.get(position).getAutor());
+                dcontext.startActivity(intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
             }
         });
     }
 
     @Override
     public int getItemCount() {
-        return artigosList.size();
+        return martigosList.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageArtigo;
-        TextView titulo, descricao;
-        CardView cardView;
+        TextView idTitulo, idConteudo;
+        ImageView idImg;
+        CardView idCVArtigos;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            imageArtigo = (ImageView) itemView.findViewById(R.id.imgArtigo);
-            titulo = (TextView) itemView.findViewById(R.id.txtTitulo);
-            descricao = (TextView) itemView.findViewById(R.id.txtArtigos);
-            cardView = (CardView) itemView.findViewById(R.id.idCVArtigos);
+            idTitulo = (TextView) itemView.findViewById(R.id.txtTitulo);
+            idConteudo = (TextView) itemView.findViewById(R.id.txtArtigos);
+            idImg = (ImageView) itemView.findViewById(R.id.imgArtigo);
+            idCVArtigos = (CardView) itemView.findViewById(R.id.idCVArtigos);
         }
     }
 }

@@ -1,24 +1,29 @@
 package com.example.e_recycle;
 
 public class Artigos {
+    private String data;
+    private String titulo;
     private int imgArtigo;
-    private String titulo, descricao;
+    private String descricao;
+    private String autor;
 
     public Artigos() {
     }
 
-    public Artigos(int imgArtigo, String titulo, String descricao) {
-        this.imgArtigo = imgArtigo;
+    public Artigos(String data, String titulo, int imgArtigo, String descricao, String autor) {
+        this.data = data;
         this.titulo = titulo;
-        this.descricao = descricao;
-    }
-
-    public int getImgArtigo() {
-        return imgArtigo;
-    }
-
-    public void setImgArtigo(int imgArtigo) {
         this.imgArtigo = imgArtigo;
+        this.descricao = descricao;
+        this.autor = autor;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
     }
 
     public String getTitulo() {
@@ -29,11 +34,27 @@ public class Artigos {
         this.titulo = titulo;
     }
 
+    public int getImgArtigo() {
+        return imgArtigo;
+    }
+
+    public void setImgArtigo(int imgArtigo) {
+        this.imgArtigo = imgArtigo;
+    }
+
     public String getDescricao() {
         return descricao;
     }
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
     }
 }

@@ -24,7 +24,7 @@
             android:id="@+id/idToolbarArtigos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Você Sabia?"
+            app:title="Artigos"
             app:titleTextColor="#fff"/>
         <View
             android:layout_below="@id/idToolbarArtigos"
@@ -37,8 +37,5 @@
 <androidx.recyclerview.widget.RecyclerView
     android:id="@+id/idRVArtigos"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</androidx.recyclerview.widget.RecyclerView>
-
+    android:layout_height="match_parent"/>
 </LinearLayout>

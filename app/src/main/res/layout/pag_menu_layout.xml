@@ -27,7 +27,7 @@
 
     <GridLayout
         android:columnCount="2"
-        android:rowCount="4"
+        android:rowCount="5"
         android:alignmentMode="alignMargins"
         android:columnOrderPreserved="false"
         android:layout_width="match_parent"

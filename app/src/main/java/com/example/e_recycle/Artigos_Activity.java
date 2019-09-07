@@ -2,7 +2,6 @@ package com.example.e_recycle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,27 +19,26 @@ public class Artigos_Activity extends AppCompatActivity {
     Toolbar tbArtigos;
     List<Artigos> lstArtigos;
     Button btnVoltar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.artigos_layout);
 
-        tbArtigos = (Toolbar) findViewById(R.id.idToolbarArtigos);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
-        setSupportActionBar(tbArtigos);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        tbArtigos = (Toolbar) findViewById(R.id.idToolbarArtigos);
 
         lstArtigos = new ArrayList<>();
-        lstArtigos.add(new Artigos(R.drawable.thumb_art, "Titulo", "Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."));
-        lstArtigos.add(new Artigos(R.drawable.thumb_art, "Titulo", "Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."));
-        lstArtigos.add(new Artigos(R.drawable.thumb_art, "Titulo", "Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."));
-        lstArtigos.add(new Artigos(R.drawable.thumb_art, "Titulo", "Pensando mais a longo prazo, a percepção das dificuldades representa uma abertura para a melhoria das regras de conduta normativas. Todas estas questões, devidamente ponderadas, levantam dúvidas sobre se o desafiador cenário globalizado afeta positivamente a correta previsão do fluxo de informações."));
+        lstArtigos.add(new Artigos("07/09/2019", "Tittle Artigo", R.drawable.art_full, "Conteudo da materia, Conteudo da materia, Conteudo da materia", "Samuel"));
+        lstArtigos.add(new Artigos("07/09/2019", "Tittle Artigo", R.drawable.art_full, "Conteudo da materia, Conteudo da materia, Conteudo da materia", "Samuel"));
+        lstArtigos.add(new Artigos("07/09/2019", "Tittle Artigo Dois", R.drawable.art_full, "Materia dois para teste", "Samuel"));
+        lstArtigos.add(new Artigos("07/09/2019", "Tittle Artigo Dois", R.drawable.art_full, "Materia dois para teste", "Samuel"));
 
-        RecyclerView m_recyclerView = (RecyclerView) findViewById(R.id.idRVArtigos);
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.idRVArtigos);
         RecyclerVAdapter vAdapter = new RecyclerVAdapter(getApplicationContext(), lstArtigos);
-        m_recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        m_recyclerView.setAdapter(vAdapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
+        recyclerView.setAdapter(vAdapter);
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override

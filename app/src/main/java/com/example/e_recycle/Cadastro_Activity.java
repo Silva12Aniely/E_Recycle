@@ -1,6 +1,5 @@
 package com.example.e_recycle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
@@ -8,10 +7,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -35,9 +31,9 @@ public class Cadastro_Activity extends AppCompatActivity {
     Button btnCadastrar, btnVoltar;
     TextView rLogin;
     ImageView cImg;
-    EditText cNome, cCPF, cTelefone, cEmail, /*cSenha,*/
-            codCliente;
+    EditText cNome, cCPF, cTelefone, cEmail, cSenha;
     List<Clientes> clientesList;
+    List<Usuarios> usuariosList;
     ProgressBar progressBar;
 
     boolean isUpdating = false;
@@ -50,29 +46,28 @@ public class Cadastro_Activity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.idCadastro);
         btnCadastrar = (Button) findViewById(R.id.btnCadastrar);
         rLogin = (TextView) findViewById(R.id.RealizarLogin);
-        btnVoltar = (Button) findViewById(R.id.btnVoltarc);
         progressBar = (ProgressBar) findViewById(R.id.idPBCad);
 
 //        Dados Clientes/Usuario
-        codCliente = (EditText) findViewById(R.id.idCodclientes);
         cImg = (ImageView) findViewById(R.id.cImgUsu);
         cNome = (EditText) findViewById(R.id.cNome_Sobrenome);
         cCPF = (EditText) findViewById(R.id.cCPF);
         cTelefone = (EditText) findViewById(R.id.cTelefone);
         cEmail = (EditText) findViewById(R.id.cEmail);
-//        cSenha = (EditText) findViewById(R.id.cSenha);
+        cSenha = (EditText) findViewById(R.id.cSenha);
         clientesList = new ArrayList<>();
+        usuariosList = new ArrayList<>();
 
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                createUsuario();
                 createClientes();
                 cNome.setText("");
                 cEmail.setText("");
                 cTelefone.setText("");
                 cCPF.setText("");
-                btnCadastrar.setEnabled(false);
-                btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
+                cSenha.setText("");
             }
         });
         rLogin.setOnClickListener(new View.OnClickListener() {
@@ -82,16 +77,9 @@ public class Cadastro_Activity extends AppCompatActivity {
                 finish();
             }
         });
-        btnVoltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-//                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-//                finish();
-                Toast.makeText(getApplicationContext(), "Cliquei", Toast.LENGTH_SHORT).show();
-            }
-        });
 
         readClientes();
+        readUsuario();
     }
 
     private void createClientes() {
@@ -127,12 +115,48 @@ public class Cadastro_Activity extends AppCompatActivity {
         params.put("telefone", telefone);
         params.put("cpf", cpf);
 
+        btnCadastrar.setEnabled(false);
+        btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
+
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_CLIENTES, params, CODE_POST_REQUEST);
         request.execute();
     }
 
     private void readClientes() {
         PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_READ_CLIENTES, null, CODE_GET_REQUEST);
+        request.execute();
+    }
+
+    // U S U A R I O
+    private void createUsuario() {
+        String senha = cSenha.getText().toString().trim();
+        String email = cEmail.getText().toString().trim();
+
+        if (TextUtils.isEmpty(email)) {
+            cEmail.setError("Insira seu email");
+            cEmail.requestFocus();
+            return;
+        }
+        if (TextUtils.isEmpty(senha)) {
+            cSenha.setError("Insira sua senha");
+            cSenha.requestFocus();
+            return;
+        }
+
+        HashMap<String, String> params = new HashMap<>();
+        params.put("email", email);
+        params.put("senha", senha);
+
+        btnCadastrar.setEnabled(false);
+        btnCadastrar.setBackgroundResource(R.drawable.btn_disabled);
+
+        PerformNetworkRequestUsuario request = new PerformNetworkRequestUsuario(Api.URL_CREATE_USUARIOS, params, CODE_POST_REQUEST);
+        request.execute();
+    }
+
+    // U S U A R I O
+    private void readUsuario() {
+        PerformNetworkRequestUsuario request = new PerformNetworkRequestUsuario(Api.URL_READ_USUARIOS, null, CODE_GET_REQUEST);
         request.execute();
     }
 
@@ -178,6 +202,67 @@ public class Cadastro_Activity extends AppCompatActivity {
                 if (!object.getBoolean("error")) {
                     Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
                     refreshClienteList(object.getJSONArray("clientes"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        protected String doInBackground(Void... voids) {
+            RequestHandler requestHandler = new RequestHandler();
+
+            if (requestCode == CODE_POST_REQUEST) {
+                return requestHandler.sendPostRequest(url, params);
+            }
+            if (requestCode == CODE_GET_REQUEST) {
+                return requestHandler.sendGetRequest(url);
+            }
+            return null;
+        }
+    }
+
+    // U S U A R I O
+    private void refreshUsuarioList(JSONArray usuario) throws JSONException {
+        usuariosList.clear();
+
+        for (int i = 0; i < usuario.length(); i++) {
+            JSONObject obj = usuario.getJSONObject(i);
+
+            usuariosList.add(new Usuarios(
+                    obj.getString("email"),
+                    obj.getString("senha")
+            ));
+        }
+    }
+
+    // U S U A R I O
+    private class PerformNetworkRequestUsuario extends AsyncTask<Void, Void, String> {
+        String url;
+        HashMap<String, String> params;
+        int requestCode;
+
+        public PerformNetworkRequestUsuario(String url, HashMap<String, String> params, int requestCode) {
+            this.url = url;
+            this.params = params;
+            this.requestCode = requestCode;
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressBar.setVisibility(View.VISIBLE);
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            progressBar.setVisibility(View.GONE);
+            try {
+                JSONObject object = new JSONObject(s);
+                if (!object.getBoolean("error")) {
+                    Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
+                    refreshUsuarioList(object.getJSONArray("usuario"));
                 }
             } catch (Exception e) {
                 e.printStackTrace();

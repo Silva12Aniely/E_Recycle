@@ -11,21 +11,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/btnVoltarc"
-            android:layout_width="40dp"
-            android:layout_centerVertical="true"
-            android:layout_height="33dp"
-            android:background="#00FFFFFF"
-            android:drawableLeft="@drawable/ic_arrow_menu"/>
         <androidx.appcompat.widget.Toolbar
-            android:layout_toRightOf="@id/btnVoltarc"
             android:id="@+id/idCadastro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:title="Você Sabia?"
-            app:titleTextColor="#fff"
-            android:layout_toEndOf="@id/btnVoltarc" />
+            app:title="Cadastro"
+            app:titleTextColor="#fff" />
         <View
             android:layout_below="@id/idCadastro"
             android:layout_width="match_parent"
@@ -64,12 +55,6 @@
                 android:layout_marginRight="30dp"
                 android:background="@drawable/background_cadastro"
                 android:orientation="vertical">
-
-                <EditText
-                    android:id="@+id/idCodclientes"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone"/>
 
                 <EditText
                     android:id="@+id/cNome_Sobrenome"

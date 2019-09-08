@@ -18,11 +18,32 @@
     <string name="paragrafo2">A E-Recycle é formada por um grupo de jovens cursando no Senac largo treze o curso técnico em tecnologia da informação, que fez esse projeto pensando muito além de conseguir uma boa nota ou um diploma, mas predisposto a conseguir alcançar o objetivo de levar informação e conscientização do descarte correto de lixos eletrônicos e sua importância de ser discutido na sociedade, porém esse era nosso pensamento a priori, conforme o decorrer do projeto vimos uma grande necessidade de tentar a levar ajuda para pessoas que tem como sua principal fonte de renda a coleta de lixos recicláveis, por isso criamos nossos aplicativos Web e mobile para que além de levar a conscientização possamos levar auxilio para aqueles nos ajuda a manter um ciclo de sustentabilidade em nosso planeta, por isso visamos continuar a levar compreensão do por que é tão importante descartar de forma correta lixos eletrônicos e qualquer outro tipo de lixo de origem reciclável, mas também mostrar quem pode te ajudar a levar esses componentes para locais específicos de descarte.</string>
 
     <!--voce sabia?-->
-    <string name="cpu">Contem silício - um elemento químico que se inalado pode causar pneumonia, silicose e até câncer de pulmão.</string>
-    <string name="hd">O alumínio é um dos elementos químicos presentes nos HDs ele é carcinogênico para humanos, causando câncer. O seu vapor é altamente tóxico e se dissolve fácil em alimentos e bebidas, também causa disfunções neurológicas, convulsões entre outros danos.</string>
+    <string name="cpu_vs">Contem silício - Um elemento químico que se inalado pode causar pneumonia, silicose e até câncer de pulmão. Isso pode ocorrer com as extrações de sílica.</string>
+    <string name="hd">O alumínio é um dos elementos químicos presentes nos HDs que são carcinogênico para humanos. O seu vapor é altamente tóxico e se dissolve fácil em alimentos e bebidas, também causa disfunções neurológicas, convulsões entre outros danos.</string>
+    <string name="screen">Mercúrio – É um metal pesado que está presente nos monitores, causa transtornos digestivos, deteriora o sistema nervoso e pode causar demência.</string>
+    <string name="psu">Uma PSU(Power Suply Unit) possui diversos metais pesados, podendo causar grandes danos à saúde e ao meio ambiente. Um dos elementos químicos muito usado em fontes são o estanho, um metal que está presente na solda dos capacitores e são provenientes de doenças e irritação na pele e olhos.</string>
+    <string name="keyb">Depois dos metais, os plásticos constituem cerca de 23% do computador, o teclado é um deles, ele não apresenta nenhum risco se utilizados e reciclados corretamente. Também contém prata na membrana do teclado, um metal tóxico ao ser humano, que em contato com esse metal causa-se a argiria(Intoxicação da prata).</string>
+    <string name="mboard">Ouro – Um dos elementos usados na placa mãe, para isso é preciso extrair o ouro e misturar com o mercúrio para que se forme uma espécie de liga. Essa liga solidifica e é queimada eliminando o mercúrio na atmosfera e poluindo o meio ambiente.</string>
+    <string name="mram">Um único chip de memória RAM consome 1,7 quilos de combustíveis fósseis e substâncias químicas para ser produzido. O germânio e o Silício são usados na fabricação, alguns dos seus compostos que são extraídos são tóxicos.</string>
+    <string name="gpu">Placas de circuitos tem uma série de metais, contendo uma fina película metálica (Cobre, prata, ouro, níquel, etc.) em sua estrutura. Há pelo menos 17 metais presentes nelas de pesados a preciosos.</string>
+    <string name="info_vs">Vale ressaltar que os componentes não liberam resíduos quando estão em ambientes fechado e em bom estado, apenas em aterros, locais inadequados onde a temperatura é mais alta e as chances de ter contato com as chuvas são mais altas. </string>
     <string name="info_voce_sabia">Os descartes incorretos de lixos eletrônicos provocam a liberação de substâncias poluentes que contaminam o solo e fazem mal aos serem vivos (Plantas, Humanos e Animais).</string>
     <string name="info_voce_sabia_b">Clique e conheça algumas delas</string>
+
     <string name="projeto_e_recycle">Projeto E-Recycle</string>
+    <string name="fonte_psu">Fonte(PSU)</string>
+    <string name="monitor">Monitor</string>
+    <string name="cpu">CPU</string>
+    <string name="hd_img">hd_img</string>
+    <string name="teclado">Teclado</string>
+    <string name="placa_m_e">Placa Mãe</string>
+    <string name="ram">ram</string>
+    <string name="mem_ria_ram">Memória Ram</string>
+    <string name="placa_de_video">Placa de video</string>
+    <string name="hd_name">HD</string>
+    <string name="fonte">Fonte</string>
+    <string name="quer_se_cadastrar_ncomo_coletor">Quer se cadastrar como coletor?</string>
+    <string name="insira_seu_e_mail">Insira seu e-mail</string>
 
     <array name="Regiões">
         <item>Zona Sul</item>

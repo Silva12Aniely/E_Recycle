@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/vocesabia_bk"
     android:orientation="vertical"
     tools:context=".Voce_Sabia_Activity">
 
@@ -15,21 +15,24 @@
         <Button
             android:id="@+id/btnVoltar"
             android:layout_width="40dp"
-            android:layout_centerVertical="true"
             android:layout_height="33dp"
+            android:layout_centerVertical="true"
             android:background="#00FFFFFF"
-            android:drawableLeft="@drawable/ic_arrow_menu"/>
+            android:drawableLeft="@drawable/ic_arrow_menu" />
+
         <androidx.appcompat.widget.Toolbar
-            android:layout_toRightOf="@id/btnVoltar"
             android:id="@+id/TvSabia"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/btnVoltar"
+            android:layout_toRightOf="@id/btnVoltar"
             app:title="Você Sabia?"
-            app:titleTextColor="#fff"/>
+            app:titleTextColor="#fff" />
+
         <View
-            android:layout_below="@id/TvSabia"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@id/TvSabia"
             android:background="#fff" />
     </RelativeLayout>
 
@@ -41,59 +44,62 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="#fff"
-            android:textSize="18sp"
             android:layout_margin="10dp"
-            android:text="@string/info_voce_sabia"/>
+            android:text="@string/info_voce_sabia"
+            android:textColor="#fff"
+            android:textSize="18sp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/info_voce_sabia_b"
-            android:textSize="20sp"
             android:textColor="#fff"
-            android:textStyle="bold"/>
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <GridLayout
-        android:columnCount="2"
-        android:rowCount="4"
-        android:alignmentMode="alignMargins"
-        android:columnOrderPreserved="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="true"
+        android:rowCount="4">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/vs_cpu"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_cpu"
-                    android:contentDescription="CPU"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/cpu"
+                    android:src="@drawable/vs_cpu" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="CPU"
                     android:gravity="center"
+                    android:text="@string/cpu"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -101,33 +107,36 @@
             android:id="@+id/vs_screen"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_desktop"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/monitor"
                     android:padding="5dp"
-                    android:contentDescription="monitor"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_desktop" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Monitor"
                     android:gravity="center"
+                    android:text="@string/monitor"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -135,33 +144,36 @@
             android:id="@+id/vs_PSU"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_fonte"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/fonte_psu"
                     android:padding="5dp"
-                    android:contentDescription="Fonte(SPU)"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_fonte" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Fonte"
                     android:gravity="center"
+                    android:text="@string/fonte"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -169,33 +181,36 @@
             android:id="@+id/vs_HD"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_harddisk"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/hd_img"
                     android:padding="5dp"
-                    android:contentDescription="hd"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_harddisk" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="HD"
                     android:gravity="center"
+                    android:text="@string/hd_name"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -203,33 +218,36 @@
             android:id="@+id/vs_keyb"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_keyboard"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/teclado"
                     android:padding="5dp"
-                    android:contentDescription="teclado"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_keyboard" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Teclado"
                     android:gravity="center"
+                    android:text="@string/teclado"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -237,33 +255,36 @@
             android:id="@+id/vs_mBoard"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_motherboard"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/placa_m_e"
                     android:padding="5dp"
-                    android:contentDescription="placaMae"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_motherboard" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Placa Mãe"
                     android:gravity="center"
+                    android:text="@string/placa_m_e"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -271,33 +292,36 @@
             android:id="@+id/vs_ram"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_ramemory"
+                    android:layout_gravity="center_horizontal"
+                    android:contentDescription="@string/ram"
                     android:padding="5dp"
-                    android:contentDescription="ram"
-                    android:layout_gravity="center_horizontal"/>
+                    android:src="@drawable/vs_ramemory" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Memoria Ram"
                     android:gravity="center"
+                    android:text="@string/mem_ria_ram"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
@@ -305,35 +329,40 @@
             android:id="@+id/vs_GPU"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_columnWeight="1"
             android:layout_rowWeight="1"
-            app:cardElevation="8dp"
-            app:cardCornerRadius="5dp"
+            android:layout_columnWeight="1"
             android:layout_margin="16dp"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="8dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal|center_vertical"
                 android:orientation="vertical">
+
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/vs_gpu"
-                    android:padding="5dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginEnd="5dp"
                     android:layout_marginRight="5dp"
-                    android:contentDescription="gpu"
-                    android:layout_gravity="center_horizontal"/>
+                    android:contentDescription="@string/gpu"
+                    android:padding="5dp"
+                    android:src="@drawable/vs_gpu" />
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="Placa de video"
                     android:gravity="center"
+                    android:text="@string/placa_de_video"
                     android:textSize="18sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+
     </GridLayout>
 </LinearLayout>

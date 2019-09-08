@@ -23,8 +23,13 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
 
         tvSabia = (Toolbar) findViewById(R.id.TvSabia);
         vs_cpu = (CardView) findViewById(R.id.vs_cpu);
-        vs_hd = (CardView) findViewById(R.id.vs_HD);
         vs_screen = (CardView) findViewById(R.id.vs_screen);
+        vs_psu = (CardView) findViewById(R.id.vs_PSU);
+        vs_hd = (CardView) findViewById(R.id.vs_HD);
+        vs_keyb = (CardView) findViewById(R.id.vs_keyb);
+        vs_mBoard = (CardView) findViewById(R.id.vs_mBoard);
+        vs_ram = (CardView) findViewById(R.id.vs_ram);
+        vs_gpu = (CardView) findViewById(R.id.vs_GPU);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
 
         setSupportActionBar(tvSabia);
@@ -35,7 +40,21 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
-                builder.setTitle("Procesadores").setMessage(R.string.cpu).show();
+                builder.setTitle("Procesadores").setMessage(R.string.cpu_vs).show();
+            }
+        });
+        vs_screen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Tela de Monitor").setMessage(R.string.screen).show();
+            }
+        });
+        vs_psu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Fonte de Alimentação").setMessage(R.string.psu).show();
             }
         });
         vs_hd.setOnClickListener(new View.OnClickListener() {
@@ -45,11 +64,32 @@ public class Voce_Sabia_Activity extends AppCompatActivity {
                 builder.setTitle("Hard Disk").setMessage(R.string.hd).show();
             }
         });
-        vs_screen.setOnClickListener(new View.OnClickListener() {
+        vs_keyb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
-                builder.setTitle("Tela de Monitor").setMessage("Contêm mercúrio, e pode causa transtornos digestivos, possibilidades de alteração cromossômica.").show();
+                builder.setTitle("Teclado").setMessage(R.string.keyb).show();
+            }
+        });
+        vs_mBoard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Placa Mãe").setMessage(R.string.mboard).show();
+            }
+        });
+        vs_ram.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Memória RAM").setMessage(R.string.mram).show();
+            }
+        });
+        vs_gpu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(Voce_Sabia_Activity.this);
+                builder.setTitle("Placa de Vídeo").setMessage(R.string.gpu).show();
             }
         });
 

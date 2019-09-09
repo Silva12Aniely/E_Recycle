@@ -16,4 +16,8 @@ public class Api {
     //Login
     public static final String URL_LOGIN = ROOT_URL + "loginUsuario";
     public static final String URL_READ_LOGIN = ROOT_URL + "getUsu";
+
+    //Coletor
+    public static final String URL_CREATE_COLETOR = ROOT_URL + "createColetor";
+    public static final String URL_READ_COLETOR = ROOT_URL + "getColetor";
 }

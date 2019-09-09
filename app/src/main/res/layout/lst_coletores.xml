@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="20dp"
-    android:elevation="2dp"
     android:layout_marginBottom="10dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="wrap_content"
         android:background="#fff"
-        android:layout_margin="10dp">
+        android:layout_margin="8dp">
 
         <ImageView
-            android:id="@+id/imgColetor"
-            android:layout_width="130dp"
-            android:layout_height="130dp"
+            android:id="@+id/imgColetorlst"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
             android:src="@drawable/ic_coletores"/>
 
         <TextView
-            android:id="@+id/lblNomeColetor"
-            android:layout_toRightOf="@id/imgColetor"
+            android:id="@+id/lblNomeColetorlst"
+            android:layout_toRightOf="@id/imgColetorlst"
+            android:layout_marginTop="22dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nome do Coletor"
+            android:text="@string/nome_do_coletor"
             android:textSize="25sp"/>
 
         <RatingBar
             android:id="@+id/idRatingColetor"
-            android:layout_below="@id/lblNomeColetor"
+            android:layout_below="@id/lblNomeColetorlst"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:numStars="5"
             android:stepSize="1"
-            android:layout_toRightOf="@id/imgColetor"
+            android:layout_toRightOf="@id/imgColetorlst"
             android:progressBackgroundTint="#6D2F6F0E"
-            android:saveEnabled="true"/>
+            android:isIndicator="true"
+            style="?attr/ratingBarStyleIndicator"
+            android:saveEnabled="true"
+            android:layout_toEndOf="@id/imgColetorlst" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/imgColetor"
-            android:text="0.0Km"
+            android:layout_toRightOf="@id/imgColetorlst"
+            android:layout_marginTop="5dp"
+            android:paddingRight="5dp"
+            android:text="@string/zona_sul_sp"
             android:gravity="end"
             android:textSize="22sp"
             android:layout_below="@id/idRatingColetor"/>
 
     </RelativeLayout>
-</androidx.cardview.widget.CardView>
+</RelativeLayout>

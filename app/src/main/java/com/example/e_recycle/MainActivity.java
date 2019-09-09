@@ -52,7 +52,18 @@ public class MainActivity extends AppCompatActivity {
         btnEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loginUsuarios();
+//                loginUsuarios();
+                String user, pass;
+                user = txtLogin.getText().toString();
+                pass = txtSenha.getText().toString();
+
+                if (user.equals("admin") && pass.equals("admin")) {
+                    startActivity(new Intent(getApplicationContext(), Pag_Menu_Activity.class));
+                    finish();
+                } else {
+                    Toast.makeText(getApplicationContext(),"Login inválido!", Toast.LENGTH_SHORT).show();
+                    txtLogin.requestFocus();
+                }
             }
         });
 

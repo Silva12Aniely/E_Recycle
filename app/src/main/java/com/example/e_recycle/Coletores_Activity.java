@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
+import android.media.Rating;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,8 +16,7 @@ import android.widget.ListView;
 import android.widget.RatingBar;
 
 public class Coletores_Activity extends AppCompatActivity {
-    Toolbar toolbar;
-    ListView listView;
+    ListView lstColetores;
     Button btnVoltar;
 
     @Override
@@ -24,24 +24,18 @@ public class Coletores_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.coletores_layout);
 
-        toolbar = (Toolbar) findViewById(R.id.mColetores);
-        listView = (ListView) findViewById(R.id.lstColetores);
+        lstColetores = (ListView) findViewById(R.id.lstColetores);
         btnVoltar = (Button) findViewById(R.id.btnVoltar);
         final RatingBar ratingBar = findViewById(R.id.idRatingColetor);
 
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
-
         CustomAdapter customAdapter = new CustomAdapter();
-        listView.setAdapter(customAdapter);
+        lstColetores.setAdapter(customAdapter);
 
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        lstColetores.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-//                Intent intent = new Intent(getApplicationContext(), Coletores_Activity.class);
-//                startActivity(intent);
-//                finish();
-//                Toast.makeText(getApplicationContext(), "Cliquei aqui!", Toast.LENGTH_SHORT).show();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long id) {
+                startActivity(new Intent(getApplicationContext(), Perfil_Coletor_Activity.class));
             }
         });
 
@@ -75,6 +69,7 @@ public class Coletores_Activity extends AppCompatActivity {
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
             View view1 = getLayoutInflater().inflate(R.layout.lst_coletores, null);
+
             return view1;
         }
     }

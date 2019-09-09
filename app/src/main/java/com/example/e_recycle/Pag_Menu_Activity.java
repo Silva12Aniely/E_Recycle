@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Pag_Menu_Activity extends AppCompatActivity {
-    CardView idColetores, idVSabia, idArtigos, idCadColetores, idSobre, idPerfilUsu;
+    CardView idColetores, idVSabia, idArtigos, idCadColetores, idSobre, idPerfilUsu, logoPi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +25,7 @@ public class Pag_Menu_Activity extends AppCompatActivity {
         idCadColetores = (CardView) findViewById(R.id.cvCadColetor);
         idSobre = (CardView) findViewById(R.id.cvSobre);
         idPerfilUsu = (CardView) findViewById(R.id.cvMPerfil);
+        logoPi = (CardView) findViewById(R.id.logoPi);
 
         idColetores.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,6 +69,14 @@ public class Pag_Menu_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        logoPi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                linkSite("");
+                Toast.makeText(getApplicationContext(), "Link para o Site", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -80,5 +90,13 @@ public class Pag_Menu_Activity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
+    }
+
+
+
+    public void linkSite (String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        startActivity(intent);
     }
 }

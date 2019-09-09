@@ -1,15 +1,25 @@
 package com.example.e_recycle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +39,8 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
     TextView Sair, nomeUsu, emailUsu, infoColetor;
     EditText edtTel, edtCpf;
     List<Coletor_Cad> coletor_cads;
+    Spinner spinnerRegioes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +51,13 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         Sair = (TextView) findViewById(R.id.txtSair);
         btnColetor = (Button) findViewById(R.id.btnCadastroColetor);
         infoColetor = (TextView) findViewById(R.id.lblInfoColero);
+        spinnerRegioes = (Spinner) findViewById(R.id.spinnerRegioes);
+
+        nomeUsu = (TextView) findViewById(R.id.usuNome);
+        emailUsu = (TextView) findViewById(R.id.usuEmail);
+        edtTel = (EditText) findViewById(R.id.edtTel);
+        edtCpf = (EditText) findViewById(R.id.edtCpf);
+
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,6 +69,7 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                finish();
             }
         });
         btnColetor.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +80,9 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         });
 
         readColetor();
+
+        Resources res = getResources();
+        String[] regioes = res.getStringArray(R.array.regioes);
     }
 
     private void createColetor() {
@@ -67,19 +90,21 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         String email = emailUsu.getText().toString().trim();
         String tel = edtTel.getText().toString().trim();
         String cpf = edtCpf.getText().toString().trim();
+        String zona = spinnerRegioes.getSelectedItem().toString();
 
         HashMap<String, String> params = new HashMap<>();
+        params.put("codregioes", zona);
         params.put("nome", nome);
         params.put("email", email);
         params.put("telefone", tel);
         params.put("cpf", cpf);
 
+        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_COLETOR, params, CODE_POST_REQUEST);
+        request.execute();
+
         Toast.makeText(getApplicationContext(), "Parabéns! Você agora é um coletor.", Toast.LENGTH_LONG).show();
         btnColetor.setVisibility(View.GONE);
         infoColetor.setVisibility(View.GONE);
-
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_CREATE_COLETOR, params, CODE_POST_REQUEST);
-        request.execute();
     }
 
     private void readColetor() {
@@ -93,6 +118,7 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
             JSONObject obj = coletores.getJSONObject(i);
 
             coletor_cads.add(new Coletor_Cad(
+                    obj.getString("codregiao"),
                     obj.getString("nome"),
                     obj.getString("email"),
                     obj.getString("telefone"),

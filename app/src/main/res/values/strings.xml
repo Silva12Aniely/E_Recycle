@@ -48,7 +48,9 @@
     <string name="zona_sul_sp">Zona Sul/SP</string>
     <string name="telefonep">Telefone</string>
 
-    <array name="Regiões">
-        <item>Zona Sul</item>
+    <array name="regioes">
+        <!--<item>Selecione uma região</item>-->
+        <item>Santo Amaro/SP</item>
+        <item>Socorro/SP</item>
     </array>
 </resources>

@@ -16,21 +16,23 @@
         <Button
             android:id="@+id/btnVoltar"
             android:layout_width="40dp"
-            android:layout_centerVertical="true"
             android:layout_height="33dp"
+            android:layout_centerVertical="true"
             android:background="#00FFFFFF"
-            android:drawableLeft="@drawable/ic_arrow_menu"/>
+            android:drawableLeft="@drawable/ic_arrow_menu" />
+
         <androidx.appcompat.widget.Toolbar
-            android:layout_toRightOf="@id/btnVoltar"
             android:id="@+id/mUsuperfil"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/btnVoltar"
             app:title="Meu Perfil"
-            app:titleTextColor="#fff"/>
+            app:titleTextColor="#fff" />
+
         <View
-            android:layout_below="@id/mUsuperfil"
             android:layout_width="match_parent"
             android:layout_height="2dp"
+            android:layout_below="@id/mUsuperfil"
             android:background="#fff" />
     </RelativeLayout>
 
@@ -41,14 +43,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
             android:focusable="false"
-            android:focusableInTouchMode="false">
+            android:focusableInTouchMode="false"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="210dp"
-                android:layout_height="210dp"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:background="@drawable/ic_account" />
 
@@ -64,6 +66,7 @@
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/usuNome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Nome do Usuario"
@@ -73,6 +76,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/usuEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
@@ -84,9 +88,10 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:padding="15dp"
-                android:background="@drawable/background_cadastro">
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/background_cadastro"
+                android:padding="15dp">
 
                 <EditText
                     android:id="@+id/edtTel"
@@ -94,13 +99,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
-                    android:hint="@string/telefonep"
+                    android:layout_marginBottom="15dp"
                     android:background="@drawable/edit_cadastro"
+                    android:hint="@string/telefonep"
                     android:inputType="phone"
-                    android:textColorHint="#0D9412"
-                    android:textSize="22sp"
                     android:padding="10dp"
-                    android:layout_marginBottom="15dp"/>
+                    android:textColorHint="#0D9412"
+                    android:textSize="22sp" />
 
                 <EditText
                     android:id="@+id/edtCpf"
@@ -110,11 +115,25 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginRight="15dp"
                     android:background="@drawable/edit_cadastro"
+                    android:hint="@string/cpf"
                     android:inputType="number"
                     android:padding="10dp"
-                    android:hint="@string/cpf"
                     android:textColorHint="#0D9412"
                     android:textSize="22sp" />
+
+                <Spinner
+                    android:id="@+id/spinnerRegioes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/edtCpf"
+                    android:padding="13dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/edit_cadastro"
+                    android:entries="@array/regioes">
+
+                </Spinner>
             </RelativeLayout>
 
             <TextView
@@ -122,22 +141,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/quer_se_cadastrar_ncomo_coletor"
+                android:textAlignment="center"
                 android:textColor="#fff"
-                android:textSize="20sp"
-                android:layout_marginTop="-5dp"
-                android:textAlignment="center"/>
+                android:textSize="20sp" />
 
             <Button
                 android:id="@+id/btnCadastroColetor"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/btn_search_col"
-                android:textColor="#fff"
-                android:text="Clique aqui"
-                android:padding="10dp"
-                android:layout_marginBottom="20dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginTop="5dp"
-                android:layout_gravity="center_horizontal"/>
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/btn_search_col"
+                android:padding="10dp"
+                android:text="Clique aqui"
+                android:textColor="#fff" />
 
             <TextView
                 android:id="@+id/txtSair"
@@ -146,8 +164,8 @@
                 android:text="Sair"
                 android:textAlignment="center"
                 android:textColor="#FFF"
-                android:textStyle="bold"
-                android:textSize="28sp" />
+                android:textSize="28sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

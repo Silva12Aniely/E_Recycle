@@ -49,7 +49,6 @@
     <string name="telefonep">Telefone</string>
 
     <array name="regioes">
-        <!--<item>Selecione uma região</item>-->
         <item>Santo Amaro/SP</item>
         <item>Socorro/SP</item>
     </array>

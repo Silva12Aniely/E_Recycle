@@ -35,7 +35,7 @@ public class Perfil_Coletor_Activity extends AppCompatActivity {
         btnwpp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                btnWpp("https://wa.me/+5511974828871");
+                btnWpp("https://wa.me/+5511000000000");
             }
         });
 

@@ -7,9 +7,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/erecycle_logo_min"
+        android:icon="@drawable/erecycle_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/erecycle_logo_min"
+        android:roundIcon="@drawable/erecycle_logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
@@ -31,7 +31,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".Cadastro_Activity"></activity>
-        <activity android:name=".Splash_Activity" />
+        <activity android:name=".Splash_Activity" >
+
+        </activity>
         <activity android:name=".MainActivity"></activity>
     </application>
 

@@ -18,7 +18,10 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Checkable;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -40,6 +43,8 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
     EditText edtTel, edtCpf;
     List<Coletor_Cad> coletor_cads;
     Spinner spinnerRegioes;
+    CheckBox stoAmaro, socorro;
+    LinearLayout idCheck;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,12 +56,15 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         Sair = (TextView) findViewById(R.id.txtSair);
         btnColetor = (Button) findViewById(R.id.btnCadastroColetor);
         infoColetor = (TextView) findViewById(R.id.lblInfoColero);
-        spinnerRegioes = (Spinner) findViewById(R.id.spinnerRegioes);
+        idCheck = (LinearLayout) findViewById(R.id.idCheck);
 
         nomeUsu = (TextView) findViewById(R.id.usuNome);
         emailUsu = (TextView) findViewById(R.id.usuEmail);
         edtTel = (EditText) findViewById(R.id.edtTel);
         edtCpf = (EditText) findViewById(R.id.edtCpf);
+
+        stoAmaro = (CheckBox) findViewById(R.id.idZstoAmaro);
+        socorro = (CheckBox) findViewById(R.id.idZsocorro);
 
 
         btnVoltar.setOnClickListener(new View.OnClickListener() {
@@ -81,8 +89,7 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
 
         readColetor();
 
-        Resources res = getResources();
-        String[] regioes = res.getStringArray(R.array.regioes);
+
     }
 
     private void createColetor() {
@@ -90,10 +97,11 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         String email = emailUsu.getText().toString().trim();
         String tel = edtTel.getText().toString().trim();
         String cpf = edtCpf.getText().toString().trim();
-        String zona = spinnerRegioes.getSelectedItem().toString();
+        String stAmaro = stoAmaro.getText().toString();
+        String zsocorro = socorro.getText().toString();
 
         HashMap<String, String> params = new HashMap<>();
-        params.put("codregioes", zona);
+        params.put("codregioes", stAmaro);
         params.put("nome", nome);
         params.put("email", email);
         params.put("telefone", tel);
@@ -105,6 +113,7 @@ public class Perfil_Usuario_Activity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "Parabéns! Você agora é um coletor.", Toast.LENGTH_LONG).show();
         btnColetor.setVisibility(View.GONE);
         infoColetor.setVisibility(View.GONE);
+
     }
 
     private void readColetor() {

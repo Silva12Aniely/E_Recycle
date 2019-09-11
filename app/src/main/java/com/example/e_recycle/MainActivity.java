@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
     List<Login> loginList;
     ProgressBar pbLogin;
 
-    private static final int CODE_GET_REQUEST = 1024;
-    private static final int CODE_POST_REQUEST = 1025;
+//    private static final int CODE_GET_REQUEST = 1024;
+//    private static final int CODE_POST_REQUEST = 1025;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -120,13 +120,13 @@ public class MainActivity extends AppCompatActivity {
         params.put("senha", senha);
         params.put("codUsu", codUsu);
 
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_LOGIN, params, CODE_POST_REQUEST);
-        request.execute();
+//        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_LOGIN, params, CODE_POST_REQUEST);
+//        request.execute();
     }
 
     private void readLogin() {
-        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_READ_LOGIN, null, CODE_GET_REQUEST);
-        request.execute();
+//        PerformNetworkRequest request = new PerformNetworkRequest(Api.URL_READ_LOGIN, null, CODE_GET_REQUEST);
+//        request.execute();
     }
 
     private void refreshUsuariosList(JSONArray usuarios) throws JSONException {
@@ -142,51 +142,51 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {
-        String url;
-        HashMap<String, String> params;
-        int requestCode;
-
-        public PerformNetworkRequest(String url, HashMap<String, String> params, int requestCod) {
-            this.url = url;
-            this.params = params;
-            this.requestCode = requestCod;
-        }
-
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            pbLogin.setVisibility(View.VISIBLE);
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            pbLogin.setVisibility(View.GONE);
-            try {
-                JSONObject object = new JSONObject(s);
-                if (!object.getBoolean("error")) {
-                    Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
-                    refreshUsuariosList(object.getJSONArray("usuarios"));
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Toast.makeText(getApplicationContext(), "Cheguei aqui", Toast.LENGTH_SHORT).show();
-            }
-        }
-
-        @Override
-        protected String doInBackground(Void... voids) {
-            RequestHandler requestHandler = new RequestHandler();
-
-            if (requestCode == CODE_POST_REQUEST) {
-                return requestHandler.sendPostRequest(url, params);
-            }
-            if (requestCode == CODE_GET_REQUEST) {
-                return requestHandler.sendGetRequest(url);
-            }
-            return null;
-        }
-    }
+//    private class PerformNetworkRequest extends AsyncTask<Void, Void, String> {
+//        String url;
+//        HashMap<String, String> params;
+//        int requestCode;
+//
+//        public PerformNetworkRequest(String url, HashMap<String, String> params, int requestCod) {
+//            this.url = url;
+//            this.params = params;
+//            this.requestCode = requestCod;
+//        }
+//
+//        @Override
+//        protected void onPreExecute() {
+//            super.onPreExecute();
+//            pbLogin.setVisibility(View.VISIBLE);
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String s) {
+//            super.onPostExecute(s);
+//            pbLogin.setVisibility(View.GONE);
+//            try {
+//                JSONObject object = new JSONObject(s);
+//                if (!object.getBoolean("error")) {
+//                    Toast.makeText(getApplicationContext(), object.getString("message"), Toast.LENGTH_SHORT).show();
+//                    refreshUsuariosList(object.getJSONArray("usuarios"));
+//                }
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//                Toast.makeText(getApplicationContext(), "Cheguei aqui", Toast.LENGTH_SHORT).show();
+//            }
+//        }
+//
+////        @Override
+////        protected String doInBackground(Void... voids) {
+////            RequestHandler requestHandler = new RequestHandler();
+////
+////            if (requestCode == CODE_POST_REQUEST) {
+////                return requestHandler.sendPostRequest(url, params);
+////            }
+////            if (requestCode == CODE_GET_REQUEST) {
+////                return requestHandler.sendGetRequest(url);
+////            }
+////            return null;
+////        }
+//    }
 
 }
